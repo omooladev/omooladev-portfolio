@@ -1,7 +1,6 @@
 const defaultData = [];
 const fetchDataFromLocalStorage = () => {
   const data = localStorage.getItem("omooladev-portfolio");
-  console.log(data);
   if (data) {
     return JSON.parse(data);
   }
