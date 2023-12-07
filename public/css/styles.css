@@ -6,3 +6,11 @@
   margin: 0;
   user-select: none;
 }
+
+body {
+  background-color: white;
+}
+
+body.dark-default-theme {
+  background-color: orange;
+}

@@ -1,21 +1,30 @@
-import { addDataToLocalStorage } from "../utils/localStorageData.js";
+import { addDataToLocalStorage, fetchDataFromLocalStorage } from "../utils/localStorageData.js";
 
 const lightModeTheme = window.matchMedia("(prefers-color-scheme:light)").matches;
 const darkModeTheme = window.matchMedia("(prefers-color-scheme:dark)").matches;
 const setTheme = (newTheme) => {
   let theme;
+  let themeExistInLocalStorage;
   if (newTheme) {
     theme = newTheme;
   } else {
+    const themeFromLocalStorage = fetchDataFromLocalStorage().theme;
+
     if (lightModeTheme) {
-      theme = "light-default";
+      theme = "light-default-theme";
     }
     if (darkModeTheme) {
-      theme = "dark-default";
+      theme = "dark-default-theme";
+    }
+    if (themeFromLocalStorage) {
+      theme = themeFromLocalStorage;
+      themeExistInLocalStorage = true;
     }
   }
 
-  addDataToLocalStorage({ theme });
+  if (!themeExistInLocalStorage) {
+    addDataToLocalStorage({ theme });
+  }
   return setBodyClassName(theme);
 };
 const changeTheme = (event, theme) => {
