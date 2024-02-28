@@ -1,0 +1,6 @@
+.navigation {
+  background-color: blue;
+}
+body.dark-default-theme .navigation {
+  background-color: red;
+}
