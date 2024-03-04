@@ -1,12 +1,12 @@
+// import { changeTheme, setTheme } from "./libs/theme.js";
+// //----------> set theme of the website
 import { changeTheme, setTheme } from "./libs/theme.js";
-//----------> set theme of the website
+//----------> initialize the set theme function on page load
 setTheme();
-
+//<---------- EVENT LISTENERS ---------->
 lightThemeIcon.addEventListener("click", (event) => {
-  changeTheme(event, "light-default-theme");
+    changeTheme(event, "light-default");
 });
 darkThemeIcon.addEventListener("click", (event) => {
-  changeTheme(event, "dark-default-theme");
+    changeTheme(event, "dark-default");
 });
-
-

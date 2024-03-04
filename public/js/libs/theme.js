@@ -1,44 +1,40 @@
 import { addDataToLocalStorage, fetchDataFromLocalStorage } from "../utils/localStorageData.js";
-
-const lightModeTheme = window.matchMedia("(prefers-color-scheme:light)").matches;
-const darkModeTheme = window.matchMedia("(prefers-color-scheme:dark)").matches;
-const setTheme = (newTheme) => {
-  let theme;
-  let themeExistInLocalStorage;
-  if (newTheme) {
-    theme = newTheme;
-  } else {
-    const themeFromLocalStorage = fetchDataFromLocalStorage().theme;
-
-    if (lightModeTheme) {
-      theme = "light-default-theme";
+//----------> This code checks for the default browser theme, If it is light, dark and if otherwise we go with a light theme by default
+const defaultBrowserTheme = window.matchMedia("(prefers-color-scheme:light)").matches
+    ? "light-default"
+    : window.matchMedia("(prefers-color-scheme:dark)").matches
+        ? "dark-default"
+        : "light-default";
+export const setTheme = (newTheme) => {
+    let theme;
+    let themeExistInLocalStorage;
+    if (newTheme) {
+        theme = newTheme;
     }
-    if (darkModeTheme) {
-      theme = "dark-default-theme";
+    else {
+        //----------> get theme from local storage
+        const themeFromLocalStorage = fetchDataFromLocalStorage().theme;
+        if (themeFromLocalStorage) {
+            theme = themeFromLocalStorage;
+        }
+        else {
+            theme = defaultBrowserTheme;
+            //----------> store the default browser theme to the local storage
+            addDataToLocalStorage({ theme });
+        }
     }
-    if (themeFromLocalStorage) {
-      theme = themeFromLocalStorage;
-      themeExistInLocalStorage = true;
-    }
-  }
-
-  if (!themeExistInLocalStorage) {
-    addDataToLocalStorage({ theme });
-  }
-  return setBodyClassName(theme);
+    // return setBodyClassName(defaultBrowserTheme);
 };
-const changeTheme = (event, theme) => {
-  event.stopPropagation();
-  return setTheme(theme);
+export const changeTheme = (event, theme) => {
+    event.stopPropagation();
+    return setTheme(theme);
 };
-const setBodyClassName = (theme) => {
-  if (theme === body.className) {
-    return;
-  }
-  if (body.className) {
-    body.classList.remove(body.className);
-  }
-
-  return body.classList.add(theme);
-};
-export { setTheme, changeTheme };
+// const setBodyClassName = (theme) => {
+//   if (theme === body.className) {
+//     return;
+//   }
+//   if (body.className) {
+//     body.classList.remove(body.className);
+//   }
+//   return body.classList.add(theme);
+// };
