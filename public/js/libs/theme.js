@@ -19,22 +19,22 @@ export const setTheme = (newTheme) => {
         }
         else {
             theme = defaultBrowserTheme;
-            //----------> store the default browser theme to the local storage
-            addDataToLocalStorage({ theme });
         }
     }
-    // return setBodyClassName(defaultBrowserTheme);
+    //----------> store the default browser theme to the local storage
+    addDataToLocalStorage({ theme });
+    return setBodyClassName(theme);
 };
 export const changeTheme = (event, theme) => {
     event.stopPropagation();
     return setTheme(theme);
 };
-// const setBodyClassName = (theme) => {
-//   if (theme === body.className) {
-//     return;
-//   }
-//   if (body.className) {
-//     body.classList.remove(body.className);
-//   }
-//   return body.classList.add(theme);
-// };
+const setBodyClassName = (theme) => {
+    if (theme === body.className) {
+        return;
+    }
+    if (body.className) {
+        body.classList.remove(body.className);
+    }
+    return body.classList.add(theme);
+};
