@@ -5,7 +5,7 @@ const defaultBrowserTheme: string = window.matchMedia("(prefers-color-scheme:lig
   ? "light-default"
   : window.matchMedia("(prefers-color-scheme:dark)").matches
   ? "dark-default"
-  : "light-default";
+  : "dark-default"; //----------> making dark mode to be the default
 
 export const setTheme = (newTheme?: string) => {
   let theme: string;

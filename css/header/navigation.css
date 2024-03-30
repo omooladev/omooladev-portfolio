@@ -3,14 +3,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
-
 .navigation ul .navigation-list {
   list-style: none;
   font-size: 20px;
 }
-
 .navigation ul .navigation-list a {
   text-decoration: none;
+  color: var(--nav-link-text-color);
+}
+.navigation ul .navigation-list a:hover {
+  color: orange;
 }

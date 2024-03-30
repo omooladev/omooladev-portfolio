@@ -10,17 +10,37 @@
 }
 
 :root {
-  --body-color: white;
+  // all this colors are based on --pry-950: #050816;
+  --pry-50: #f2f4fd;
+  --pry-100: #e3e7fb;
+  --pry-200: #c1cef6;
+  --pry-300: #8ba4ee;
+  --pry-400: #4d75e3;
+  --pry-500: #2654d1;
+  --pry-600: #173bb2;
+  --pry-700: #142f90;
+  --pry-800: #152b77;
+  --pry-900: #172763;
+  --pry-950: #050816;
+  //other colors
+  --body-color: var(--pry-50);
+  --header-color: var(--pry-500);
+  --nav-link-text-color: var(--pry-50);
+  --primary-color: orangered;
+
   .dark-default {
-    --body-color: #050816;
-    --text-color: #a7a3c0;
+    --body-color: #18181b;
+    --header-color: var(--pry-950);
+    --header-color: #18181b;
+    --nav-link-colors: var(--pry-500);
     --border-color: #00cda7;
-    --container-color: #151030;
   }
 }
 body {
   background-color: var(--body-color);
 }
-body .container {
-  padding: 0 5%;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }

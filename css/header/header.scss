@@ -1,21 +1,18 @@
 @import url(./navigation.css);
+@import url(./logo.css);
 
 header {
   position: fixed;
   height: 10vh;
   width: 100vw;
-  background-color: var(--header-color);
-  background-color: purple;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 0rem 5%;
-}
-header .logo {
-  background-color: red;
-}
-header .theme-toggle-container .icon {
-  cursor: pointer;
-  font-size: 40px;
+  background-color: var(--header-color);
+  padding: 3rem 0;
+  .navigation-with-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

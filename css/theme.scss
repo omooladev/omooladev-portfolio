@@ -3,6 +3,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  i {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--nav-link-text-color);
+  }
   .light-theme-icon {
     display: none;
   }
