@@ -22,15 +22,18 @@
   --pry-900: #172763;
   --pry-950: #050816;
   --body-color: var(--pry-50);
-  --header-color: var(--pry-500);
-  --nav-link-text-color: var(--pry-50);
-  --primary-color: orangered;
+  --header-color: var(--pry-800);
+  --nav-link-text-color: var(--pry-200);
+  --nav-link-hover-text-color: var(--pry-50);
+  --nav-link-active-text-color: var(--pry-50);
 }
 :root .dark-default {
   --body-color: #18181b;
   --header-color: var(--pry-950);
   --header-color: #18181b;
-  --nav-link-colors: var(--pry-500);
+  --nav-link-text-color: var(--pry-200);
+  --nav-link-hover-text-color: var(--pry-300);
+  --nav-link-active-text-color: var(--pry-300);
   --border-color: #00cda7;
 }
 

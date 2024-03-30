@@ -9,10 +9,32 @@
   list-style: none;
   font-size: 20px;
 }
+.navigation ul .navigation-list.active {
+  position: relative;
+  padding: 0.5rem;
+}
+.navigation ul .navigation-list.active::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  content: "";
+  background-color: var(--nav-link-active-text-color);
+  height: 7px;
+  width: 7px;
+}
+.navigation ul .navigation-list.active a {
+  color: var(--nav-link-active-text-color);
+}
+.navigation ul .navigation-list.active a:hover {
+  color: var(--nav-link-active-text-color);
+}
 .navigation ul .navigation-list a {
   text-decoration: none;
   color: var(--nav-link-text-color);
+  transition: 0.3s ease;
 }
 .navigation ul .navigation-list a:hover {
-  color: orange;
+  color: var(--nav-link-hover-text-color);
 }
