@@ -17,12 +17,16 @@ export const setTheme = (newTheme?: string) => {
     const themeFromLocalStorage = fetchDataFromLocalStorage().theme;
     if (themeFromLocalStorage) {
       theme = themeFromLocalStorage;
+      themeExistInLocalStorage = true;
     } else {
       theme = defaultBrowserTheme;
+      themeExistInLocalStorage = false;
     }
   }
   //----------> store the default browser theme to the local storage
-  addDataToLocalStorage({ theme });
+  if (!themeExistInLocalStorage) {
+    addDataToLocalStorage({ theme });
+  }
   return setBodyClassName(theme);
 };
 export const changeTheme = (event: Event, theme: string) => {
