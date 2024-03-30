@@ -6,7 +6,7 @@
 }
 .theme-container i {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--nav-link-text-color);
 }
 .theme-container .light-theme-icon {

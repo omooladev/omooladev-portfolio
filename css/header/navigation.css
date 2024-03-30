@@ -7,7 +7,7 @@
 }
 .navigation ul .navigation-list {
   list-style: none;
-  font-size: 20px;
+  font-size: 1.1rem;
 }
 .navigation ul .navigation-list.active {
   position: relative;

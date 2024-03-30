@@ -9,6 +9,7 @@ header {
   align-items: center;
   background-color: var(--header-color);
   padding: 3rem 0;
+  overflow: hidden;
   .navigation-with-logo {
     display: flex;
     flex-direction: row;
