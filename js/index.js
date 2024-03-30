@@ -1,6 +1,7 @@
 "use strict";
 //<---------- HTML ELEMENTS ---------->
 const body = document.body;
+const themeContainer = document.querySelector(".theme-container");
 const lightThemeIcon = document.querySelector(".light-theme-icon");
 const darkThemeIcon = document.querySelector(".dark-theme-icon");
 //<---------- EVENT LISTENERS ---------->

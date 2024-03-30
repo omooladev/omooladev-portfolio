@@ -1,0 +1,20 @@
+.theme-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .light-theme-icon {
+    display: none;
+  }
+  .dark-theme-icon {
+    display: block;
+  }
+  &.dark {
+    .light-theme-icon {
+      display: block;
+    }
+    .dark-theme-icon {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.theme-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.theme-container .light-theme-icon {
+  display: none;
+}
+.theme-container .dark-theme-icon {
+  display: block;
+}
+.theme-container.dark .light-theme-icon {
+  display: block;
+}
+.theme-container.dark .dark-theme-icon {
+  display: none;
+}

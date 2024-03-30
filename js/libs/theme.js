@@ -36,5 +36,11 @@ const setBodyClassName = (theme) => {
     if (body.className) {
         body.classList.remove(body.className);
     }
+    if (theme === "dark-default") {
+        themeContainer.classList.add("dark");
+    }
+    if (theme === "light-default") {
+        themeContainer.classList.remove("dark");
+    }
     return body.classList.add(theme);
 };

@@ -1,5 +1,6 @@
 //<---------- HTML ELEMENTS ---------->
 const body = document.body;
+const themeContainer = document.querySelector(".theme-container") as HTMLElement;
 const lightThemeIcon = document.querySelector(".light-theme-icon") as HTMLElement;
 const darkThemeIcon = document.querySelector(".dark-theme-icon") as HTMLElement;
 
