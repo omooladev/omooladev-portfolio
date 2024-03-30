@@ -10,18 +10,16 @@
 
 :root {
   --body-color: white;
+  .dark-default {
+    --body-color: #050816;
+    --text-color: #a7a3c0;
+    --border-color: #00cda7;
+    --container-color: #151030;
+  }
 }
-:root .dark-default {
-  --body-color: #050816;
-  --text-color: #a7a3c0;
-  --border-color: #00cda7;
-  --container-color: #151030;
-}
-
 body {
   background-color: var(--body-color);
 }
-
 body .container {
   padding: 0 5%;
 }

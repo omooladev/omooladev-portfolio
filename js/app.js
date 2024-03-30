@@ -10,3 +10,6 @@ lightThemeIcon.addEventListener("click", (event) => {
 darkThemeIcon.addEventListener("click", (event) => {
     changeTheme(event, "dark-default");
 });
+
+
+TYPESCRIPT
