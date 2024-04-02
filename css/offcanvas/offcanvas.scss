@@ -56,9 +56,9 @@
         @extend %DisplayFlex;
         flex-direction: column;
         justify-content: flex-start;
+        gap: 3.5rem;
         .navigation-list {
           font-size: var(--nav-links-size);
-          margin: 1.6rem 0;
           &.active {
             padding: 0rem;
             &::after {
@@ -75,7 +75,7 @@
         text-align: center;
         color: var(--offcanvas-title-color);
         font-size: var(--offcanvas-title-size);
-        padding: 1rem 0;
+        padding: 1.5rem 0;
       }
       .social-media__links {
         @extend %DisplayFlex;

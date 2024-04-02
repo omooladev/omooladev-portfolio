@@ -60,10 +60,10 @@
 .offcanvas__area .offcanvas__body ul {
   flex-direction: column;
   justify-content: flex-start;
+  gap: 3.5rem;
 }
 .offcanvas__area .offcanvas__body ul .navigation-list {
   font-size: var(--nav-links-size);
-  margin: 1.6rem 0;
 }
 .offcanvas__area .offcanvas__body ul .navigation-list.active {
   padding: 0rem;
@@ -78,7 +78,7 @@
   text-align: center;
   color: var(--offcanvas-title-color);
   font-size: var(--offcanvas-title-size);
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }
 .offcanvas__area .offcanvas__social .social-media__links {
   justify-content: space-around;
