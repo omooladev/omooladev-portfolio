@@ -44,11 +44,9 @@ const setBodyClassName = (theme: string) => {
   }
   if (theme === "dark-default") {
     themeContainer.classList.add("dark");
-    document.querySelector('meta[name="theme-color"]')!.setAttribute("content", "orange");
   }
   if (theme === "light-default") {
     themeContainer.classList.remove("dark");
-    document.querySelector('meta[name="theme-color"]')!.setAttribute("content", "purple");
   }
 
   return body.classList.add(theme);
