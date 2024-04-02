@@ -34,6 +34,8 @@ export const changeTheme = (event, theme) => {
     return setTheme(theme);
 };
 const setBodyClassName = (theme) => {
+    //----------> get the theme color meta tag
+    //const metaTheme = document.querySelector('meta[name="theme-color"]') as HTMLMetaElement;
     if (theme === body.className) {
         return;
     }
