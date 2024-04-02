@@ -11,15 +11,16 @@
 .navigation ul {
   gap: 1.5rem;
 }
-.navigation ul .navigation-list {
+
+.navigation-list {
   list-style: none;
-  font-size: 1.1rem;
+  font-size: var(--nav-links-size);
 }
-.navigation ul .navigation-list.active {
+.navigation-list.active {
   position: relative;
   padding: 0.5rem;
 }
-.navigation ul .navigation-list.active::after {
+.navigation-list.active::after {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -30,22 +31,22 @@
   height: 7px;
   width: 7px;
 }
-.navigation ul .navigation-list.active a {
+.navigation-list.active a {
   color: var(--nav-link-active-text-color);
 }
-.navigation ul .navigation-list.active a:hover {
+.navigation-list.active a:hover {
   color: var(--nav-link-active-text-color);
 }
-.navigation ul .navigation-list a {
+.navigation-list a {
   text-decoration: none;
   color: var(--nav-link-text-color);
   transition: 0.3s ease;
 }
-.navigation ul .navigation-list a:hover {
+.navigation-list a:hover {
   color: var(--nav-link-hover-text-color);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .navigation ul {
     display: none;
   }

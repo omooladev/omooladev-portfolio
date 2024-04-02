@@ -1,0 +1,114 @@
+@import "../sass/base";
+.offcanvas__area {
+  //   display: none;
+  .backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--backdrop-color);
+    height: 100vh;
+    width: 100vw;
+    z-index: VAR(--backdrop-index);
+    &.fade {
+      opacity: 0;
+    }
+    &.show {
+      opacity: 0.5;
+    }
+  }
+  .offcanvas {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: var(--offcanvas-index);
+    background-color: var(--offcanvas-color);
+    padding: 10px 30px;
+    overflow-y: auto;
+    width: 100%;
+    &__header {
+      @extend %DisplayFlex;
+      margin: 1rem 0;
+      justify-content: space-between;
+      .close {
+        width: 100%;
+        @extend %DisplayFlex;
+        justify-content: flex-end;
+        i {
+          cursor: pointer;
+          align-self: flex-end;
+          color: orange;
+          font-size: var(--offcanvas-icon-size);
+          color: var(--nav-link-active-text-color);
+        }
+      }
+    }
+    &__body {
+      margin: 2rem 0;
+      .logo-container {
+        display: none;
+      }
+      ul {
+        .navigation-list {
+          font-size: var(--nav-links-size);
+          margin: 1rem 0;
+          &.active {
+            padding: 0rem;
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    &__social {
+      margin: 1rem 0;
+
+      .title {
+        text-align: center;
+        color: var(--offcanvas-title-color);
+        font-size: var(--offcanvas-title-size);
+        padding: 1rem 0;
+      }
+      .social-media__links {
+        @extend %DisplayFlex;
+        justify-content: space-around;
+        li {
+          a {
+            color: var(--offcanvas-social-media-color);
+            font-size: var(--offcanvas-social-media-size);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .offcanvas__area {
+    .offcanvas {
+      width: 60%;
+      &__header {
+        .logo-container {
+          display: none;
+        }
+      }
+      &__body {
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .offcanvas__area {
+    .offcanvas {
+      width: 50%;
+    }
+  }
+}
+@media (min-width: 600px) {
+  .offcanvas__area {
+    display: none;
+  }
+}

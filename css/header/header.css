@@ -10,6 +10,7 @@ header {
   background-color: var(--header-color);
   padding: 3rem 0;
   overflow: hidden;
+  z-index: var(--header-index);
 }
 header .navigation-with-logo {
   display: flex;

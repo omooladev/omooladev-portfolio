@@ -2,7 +2,6 @@
 @import url(./navigation.css);
 @import url(./menu.css);
 
-
 header {
   position: fixed;
   height: 10vh;
@@ -12,6 +11,7 @@ header {
   background-color: var(--header-color);
   padding: 3rem 0;
   overflow: hidden;
+  z-index: var(--header-index);
   .navigation-with-logo {
     display: flex;
     flex-direction: row;
