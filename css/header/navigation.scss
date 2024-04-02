@@ -1,9 +1,9 @@
+@import "../sass/base";
 .navigation {
+  @extend %DisplayFlex;
+  gap: 1.5rem;
   ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    @extend %DisplayFlex;
     gap: 1.5rem;
     .navigation-list {
       list-style: none;
@@ -37,6 +37,14 @@
           color: var(--nav-link-hover-text-color);
         }
       }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation {
+    ul {
+      display: none;
     }
   }
 }

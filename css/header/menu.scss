@@ -1,0 +1,19 @@
+@import "../sass/_base.scss";
+.menu-icon {
+  cursor: pointer;
+  @extend %DisplayFlex;
+  flex-direction: column;
+  gap: 0.5rem;
+  p {
+    cursor: pointer;
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--nav-link-active-text-color);
+  }
+}
+
+@media (min-width: 600px) {
+  .menu-icon {
+    display: none;
+  }
+}

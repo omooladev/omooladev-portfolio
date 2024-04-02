@@ -1,8 +1,14 @@
-.navigation ul {
+.navigation ul, .navigation {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.navigation {
+  gap: 1.5rem;
+}
+.navigation ul {
   gap: 1.5rem;
 }
 .navigation ul .navigation-list {
@@ -37,4 +43,10 @@
 }
 .navigation ul .navigation-list a:hover {
   color: var(--nav-link-hover-text-color);
+}
+
+@media (max-width: 600px) {
+  .navigation ul {
+    display: none;
+  }
 }
