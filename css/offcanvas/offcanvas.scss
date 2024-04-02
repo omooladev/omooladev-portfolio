@@ -53,6 +53,9 @@
         display: none;
       }
       ul {
+        @extend %DisplayFlex;
+        flex-direction: column;
+        justify-content: flex-start;
         .navigation-list {
           font-size: var(--nav-links-size);
           margin: 2rem 0;

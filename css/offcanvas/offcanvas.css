@@ -1,4 +1,4 @@
-.offcanvas__area .offcanvas__social .social-media__links, .offcanvas__area .offcanvas__header .close, .offcanvas__area .offcanvas__header {
+.offcanvas__area .offcanvas__social .social-media__links, .offcanvas__area .offcanvas__body ul, .offcanvas__area .offcanvas__header .close, .offcanvas__area .offcanvas__header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -56,6 +56,10 @@
 }
 .offcanvas__area .offcanvas__body .logo-container {
   display: none;
+}
+.offcanvas__area .offcanvas__body ul {
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .offcanvas__area .offcanvas__body ul .navigation-list {
   font-size: var(--nav-links-size);
