@@ -12,13 +12,13 @@
   background-color: var(--backdrop-color);
   height: 100vh;
   width: 100vw;
-  z-index: VAR(--backdrop-index);
-}
-.offcanvas__area .backdrop.fade {
+  z-index: var(--backdrop-index);
   opacity: 0;
+  visibility: hidden;
 }
 .offcanvas__area .backdrop.show {
   opacity: 0.5;
+  visibility: visible;
 }
 .offcanvas__area .offcanvas {
   position: fixed;
@@ -30,6 +30,11 @@
   padding: 10px 30px;
   overflow-y: auto;
   width: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+.offcanvas__area .offcanvas.show {
+  transform: translateX(0%);
 }
 .offcanvas__area .offcanvas__header {
   margin: 1rem 0;
