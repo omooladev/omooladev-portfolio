@@ -43,7 +43,7 @@
 }
 #home .button-container a.active-link {
   color: white;
-  background-color: var(--primary-color);
+  background-color: var(--active-btn-color);
 }
 #home .button-container a.border-link {
   border: 1.5px solid var(--primary-color);

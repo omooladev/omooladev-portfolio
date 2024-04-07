@@ -36,6 +36,7 @@
   --backdrop-color: var(--body-color);
   --text-color: var(--pry-950);
   --text-color-2: var(--pry-950);
+  --active-btn-color: var(--pry-800);
   --offcanvas-title-color: var(--pry-100);
   --offcanvas-social-media-color: var(--pry-200);
   --nav-links-size: 1.1rem;
@@ -61,6 +62,7 @@
   --backdrop-color: var(--body-color);
   --text-color: var(--pry-50);
   --text-color-2: var(--pry-100);
+  --active-btn-color: var(--pry-300);
 }
 
 body {

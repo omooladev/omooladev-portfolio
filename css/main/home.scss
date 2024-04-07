@@ -37,7 +37,7 @@
       border: 1.5px solid transparent;
       &.active-link {
         color: white;
-        background-color: var(--primary-color);
+        background-color: var(--active-btn-color);
       }
       &.border-link {
         border: 1.5px solid var(--primary-color);

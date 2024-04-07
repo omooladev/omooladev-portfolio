@@ -40,6 +40,7 @@
   --backdrop-color: var(--body-color);
   --text-color: var(--pry-950);
   --text-color-2: var(--pry-950);
+  --active-btn-color: var(--pry-800);
 
   // shared styles between light and dark mode
   --offcanvas-title-color: var(--pry-100);
@@ -69,6 +70,7 @@
     --backdrop-color: var(--body-color);
     --text-color: var(--pry-50);
     --text-color-2: var(--pry-100);
+    --active-btn-color: var(--pry-300);
   }
 }
 body {
