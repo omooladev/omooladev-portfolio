@@ -1,0 +1,9 @@
+#home {
+  width: 65%;
+}
+#home p.welcome-message {
+  color: var(--primary-color);
+}
+#home h1 span.name {
+  color: var(--primary-color);
+}

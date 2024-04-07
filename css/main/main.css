@@ -1,8 +1,4 @@
+@import url(./home.css);
 main {
   padding-top: 10vh;
-}
-
-main h1 {
-  padding-top: 30px;
-  color: white;
 }

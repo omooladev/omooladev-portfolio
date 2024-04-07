@@ -1,0 +1,29 @@
+.pt-20 {
+  padding-top: 20px;
+}
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.pt-50 {
+  padding-top: 50px;
+}
+
+.pb-50 {
+  padding-top: 50px;
+}
+.pt-100 {
+  padding-top: 100px;
+}
+
+p,
+h1 {
+  color: var(--text-color);
+}
+p {
+  font-size: var(--p-fs);
+  line-height: var(--p-lh);
+}
+h1 {
+  font-size: var(--h1-fs);
+}

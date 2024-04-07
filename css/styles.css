@@ -2,6 +2,7 @@
 @import url("./main/main.css");
 @import url("./theme.css");
 @import url("./offcanvas/offcanvas.css");
+@import url("./global.css");
 /* global styles */
 * {
   box-sizing: border-box;
@@ -38,6 +39,7 @@ li {
   --pry-800: #152b77;
   --pry-900: #172763;
   --pry-950: #050816;
+  --primary-color: var(--pry-800);
   --body-color: var(--pry-50);
   --header-color: var(--pry-800);
   --nav-link-text-color: var(--pry-200);
@@ -45,15 +47,21 @@ li {
   --nav-link-active-text-color: var(--pry-50);
   --offcanvas-color: var(--header-color);
   --backdrop-color: var(--body-color);
+  --text-color: var(--pry-950);
   --offcanvas-title-color: var(--pry-100);
   --offcanvas-social-media-color: var(--pry-200);
   --nav-links-size: 1.1rem;
   --offcanvas-icon-size: 2rem;
   --offcanvas-title-size: 1rem;
   --offcanvas-social-media-size: 1.2rem;
+  --h1-fs: 4rem;
+  --h2-fs: 1.5rem;
+  --p-fs: 1.1rem;
+  --p-lh: 1.65rem;
 }
 :root .dark-default {
   --body-color: #18181b;
+  --primary-color: var(--pry-300);
   --header-color: var(--pry-950);
   --header-color: #18181b;
   --nav-link-text-color: var(--pry-200);
@@ -62,6 +70,7 @@ li {
   --border-color: #00cda7;
   --offcanvas-color: var(--pry-950);
   --backdrop-color: var(--body-color);
+  --text-color: var(--pry-50);
 }
 
 body {
