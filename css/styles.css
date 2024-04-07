@@ -11,19 +11,6 @@
   user-select: none;
 }
 
-a {
-  text-decoration: none;
-}
-
-button {
-  outline: none;
-  border: none;
-}
-
-li {
-  list-style: none;
-}
-
 :root {
   --offcanvas-index: 1002;
   --backdrop-index: 1001;
@@ -48,6 +35,7 @@ li {
   --offcanvas-color: var(--header-color);
   --backdrop-color: var(--body-color);
   --text-color: var(--pry-950);
+  --text-color-2: var(--pry-950);
   --offcanvas-title-color: var(--pry-100);
   --offcanvas-social-media-color: var(--pry-200);
   --nav-links-size: 1.1rem;
@@ -56,8 +44,9 @@ li {
   --offcanvas-social-media-size: 1.2rem;
   --h1-fs: 4rem;
   --h2-fs: 1.5rem;
-  --p-fs: 1.1rem;
-  --p-lh: 1.65rem;
+  --p-fs: 1rem;
+  --p-lh: 1.5rem;
+  --btn-fs: 0.8rem;
 }
 :root .dark-default {
   --body-color: #18181b;
@@ -71,6 +60,7 @@ li {
   --offcanvas-color: var(--pry-950);
   --backdrop-color: var(--body-color);
   --text-color: var(--pry-50);
+  --text-color-2: var(--pry-100);
 }
 
 body {
