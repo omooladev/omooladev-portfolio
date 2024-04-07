@@ -49,13 +49,13 @@ li {
   --backdrop-color: var(--body-color);
 
   // shared styles between light and dark mode
-  --offcanvas-title-color: var(--pry-50);
-  --offcanvas-social-media-color: var(--pry-50);
+  --offcanvas-title-color: var(--pry-100);
+  --offcanvas-social-media-color: var(--pry-200);
   // fonts
   --nav-links-size: 1.1rem;
   --offcanvas-icon-size: 2rem;
   --offcanvas-title-size: 1rem;
-  --offcanvas-social-media-size: 1.4rem;
+  --offcanvas-social-media-size: 1.2rem;
   .dark-default {
     --body-color: #18181b;
     --header-color: var(--pry-950);

@@ -45,12 +45,12 @@ li {
   --nav-link-active-text-color: var(--pry-50);
   --offcanvas-color: var(--header-color);
   --backdrop-color: var(--body-color);
-  --offcanvas-title-color: var(--pry-50);
-  --offcanvas-social-media-color: var(--pry-50);
+  --offcanvas-title-color: var(--pry-100);
+  --offcanvas-social-media-color: var(--pry-200);
   --nav-links-size: 1.1rem;
   --offcanvas-icon-size: 2rem;
   --offcanvas-title-size: 1rem;
-  --offcanvas-social-media-size: 1.4rem;
+  --offcanvas-social-media-size: 1.2rem;
 }
 :root .dark-default {
   --body-color: #18181b;
