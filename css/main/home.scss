@@ -35,12 +35,23 @@
       border-radius: 0.3rem;
       font-size: var(--btn-fs);
       border: 1.5px solid transparent;
+
       &.active-link {
-        color: white;
-        background-color: var(--active-btn-color);
+        color: var(--active-btn-color);
+        background-color: var(--active-btn-background-color);
+        transition: background 0.3s ease;
+        &:hover {
+          background-color: var(--active-btn-background-hover-color);
+        }
       }
       &.border-link {
-        border: 1.5px solid var(--primary-color);
+        border: 1.5px solid var(--active-btn-background-color);
+        color: var(--active-btn-background-color);
+        transition: color 0.3s ease;
+        &:hover {
+          border: 1.5px solid var(--active-btn-background-hover-color);
+          color: var(--active-btn-background-hover-color);
+        }
       }
     }
   }
