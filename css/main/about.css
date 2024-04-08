@@ -51,7 +51,7 @@
   max-width: 300px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 5px -5px 20px var(--primary-color);
+  box-shadow: 5px -5px 15px var(--primary-color);
 }
 #about .about-me__content .profile-image .image img {
   max-width: 100%;

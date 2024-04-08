@@ -10,6 +10,7 @@
 .navigation-list {
   list-style: none;
   font-size: var(--nav-links-size);
+  padding: 0.5rem;
   &.active {
     position: relative;
     padding: 0.5rem;
