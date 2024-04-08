@@ -1,3 +1,4 @@
+@import "./sass/base";
 a {
   text-decoration: none;
 }
@@ -21,6 +22,39 @@ p {
 h1 {
   font-size: var(--h1-fs);
   line-height: 1;
+}
+.button-container {
+  @extend %DisplayFlex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  width: auto;
+  margin: 1rem 0;
+  a {
+    cursor: pointer;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    border-radius: 0.3rem;
+    font-size: var(--btn-fs);
+    i {
+      color: var(--active-btn-color);
+    }
+    &.active-link {
+      color: var(--active-btn-color);
+      background-color: var(--active-btn-background-color);
+      transition: background 0.3s ease;
+      &:hover {
+        background-color: var(--active-btn-background-hover-color);
+      }
+    }
+    &.border-link {
+      color: var(--active-btn-background-color);
+      transition: color 0.3s ease;
+      &:hover {
+        color: var(--active-btn-background-hover-color);
+      }
+    }
+  }
 }
 .pt-20 {
   padding-top: 20px;

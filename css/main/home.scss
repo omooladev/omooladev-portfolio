@@ -20,37 +20,14 @@
     }
   }
   .button-container {
-    @extend %DisplayFlex;
-    gap: 1.5rem;
-    justify-content: flex-start;
-    width: auto;
-    margin: 1rem 0;
     a {
-      cursor: pointer;
-      text-transform: uppercase;
-      display: inline-block;
       padding: 0.5rem 0;
       width: 10rem;
-      text-align: center;
-      border-radius: 0.3rem;
-      font-size: var(--btn-fs);
       border: 1.5px solid transparent;
-
-      &.active-link {
-        color: var(--active-btn-color);
-        background-color: var(--active-btn-background-color);
-        transition: background 0.3s ease;
-        &:hover {
-          background-color: var(--active-btn-background-hover-color);
-        }
-      }
       &.border-link {
         border: 1.5px solid var(--active-btn-background-color);
-        color: var(--active-btn-background-color);
-        transition: color 0.3s ease;
         &:hover {
           border: 1.5px solid var(--active-btn-background-hover-color);
-          color: var(--active-btn-background-hover-color);
         }
       }
     }
