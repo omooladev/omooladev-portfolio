@@ -24,6 +24,7 @@
 }
 #home .button-container a.border-link {
   border: 1.5px solid var(--active-btn-background-color);
+  color: var(--text-color-2);
 }
 #home .button-container a.border-link:hover {
   border: 1.5px solid var(--active-btn-background-hover-color);

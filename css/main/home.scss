@@ -26,6 +26,7 @@
       border: 1.5px solid transparent;
       &.border-link {
         border: 1.5px solid var(--active-btn-background-color);
+        color: var(--text-color-2);
         &:hover {
           border: 1.5px solid var(--active-btn-background-hover-color);
         }
