@@ -1,0 +1,11 @@
+#about {
+  width: 100%;
+  overflow: hidden;
+  .section-header {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 1rem;
+    text-decoration-thickness: 0.2rem;
+  }
+}

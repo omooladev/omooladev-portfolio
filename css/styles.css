@@ -12,6 +12,7 @@
 }
 
 :root {
+  scroll-behavior: smooth;
   --offcanvas-index: 1002;
   --backdrop-index: 1001;
   --header-index: 1000;
