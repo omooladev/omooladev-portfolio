@@ -23,6 +23,39 @@ h1 {
   font-size: var(--h1-fs);
   line-height: 1;
 }
+.section-header {
+  font-size: var(--section-header-fs);
+  color: var(--text-color);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-underline-offset: 1rem;
+  text-decoration-thickness: 0.2rem;
+}
+.content {
+  width: 65%;
+  p {
+    padding: 1rem 0;
+  }
+  .button-container {
+    @extend %DisplayFlex;
+    justify-content: flex-start;
+    gap: 1rem;
+    a {
+      @extend %DisplayFlex;
+      padding: 0.5rem 1rem;
+      text-transform: capitalize;
+      font-size: 0.9rem;
+      i {
+        margin-right: 5px;
+        vertical-align: top;
+      }
+      span {
+        display: inline-block;
+        line-height: 1;
+      }
+    }
+  }
+}
 .button-container {
   @extend %DisplayFlex;
   gap: 1.5rem;

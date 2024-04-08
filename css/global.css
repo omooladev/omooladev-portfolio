@@ -1,4 +1,4 @@
-.button-container {
+.button-container, .content .button-container a, .content .button-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,6 +30,39 @@ p {
 
 h1 {
   font-size: var(--h1-fs);
+  line-height: 1;
+}
+
+.section-header {
+  font-size: var(--section-header-fs);
+  color: var(--text-color);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-underline-offset: 1rem;
+  text-decoration-thickness: 0.2rem;
+}
+
+.content {
+  width: 65%;
+}
+.content p {
+  padding: 1rem 0;
+}
+.content .button-container {
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.content .button-container a {
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+.content .button-container a i {
+  margin-right: 5px;
+  vertical-align: top;
+}
+.content .button-container a span {
+  display: inline-block;
   line-height: 1;
 }
 

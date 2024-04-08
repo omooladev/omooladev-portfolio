@@ -1,4 +1,4 @@
-#about .about-me__content .profile-image, #about .about-me__content .content .button-container a, #about .about-me__content .content .button-container, #about .about-me__content {
+#about .about-me__content .profile-image, #about .about-me__content {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,39 +9,12 @@
   width: 100%;
   overflow: hidden;
 }
-#about .section-header {
-  color: var(--text-color);
-  text-decoration: underline;
-  text-decoration-color: var(--primary-color);
-  text-underline-offset: 1rem;
-  text-decoration-thickness: 0.2rem;
-}
 #about .about-me__content {
   justify-content: space-between;
   gap: 2rem;
 }
-#about .about-me__content .content {
-  width: 50%;
-}
 #about .about-me__content .content p {
-  padding: 1rem 0;
-}
-#about .about-me__content .content .button-container {
-  justify-content: flex-start;
-  gap: 1rem;
-}
-#about .about-me__content .content .button-container a {
-  padding: 0.5rem 1rem;
-  text-transform: capitalize;
-  font-size: 0.9rem;
-}
-#about .about-me__content .content .button-container a i {
-  margin-right: 5px;
-  vertical-align: top;
-}
-#about .about-me__content .content .button-container a span {
-  display: inline-block;
-  line-height: 1;
+  width: 100%;
 }
 #about .about-me__content .profile-image {
   width: 50%;

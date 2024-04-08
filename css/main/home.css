@@ -5,10 +5,11 @@
   color: var(--primary-color);
   font-weight: bold;
 }
-#home p.short-details {
-  padding: 1rem 0;
+#home .content {
   width: 80%;
-  color: var(--text-color-2);
+}
+#home .content p {
+  width: 100%;
 }
 #home h1 {
   padding: 1rem 0;
