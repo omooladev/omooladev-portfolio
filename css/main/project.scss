@@ -1,0 +1,27 @@
+@import "../sass/base";
+#project {
+  .projects-container {
+    padding: 50px 0;
+    @extend %DisplayFlex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    gap: 1.5rem;
+    .project {
+      max-width: 25rem;
+      overflow: hidden;
+      background-color: #eee;
+      border: 1px solid red;
+      border-radius: 0.5rem;
+      .thumbnail-container {
+        overflow: hidden;
+        background-color: pink;
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

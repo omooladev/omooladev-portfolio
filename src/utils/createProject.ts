@@ -2,6 +2,7 @@ const projectContainer = document.querySelector(".projects-container") as HTMLEl
 
 export const createProject = (project: Project) => {
   const singleProject = document.createElement("div");
+  singleProject.classList.add("project");
   //imp<---------- THUMBNAIL STARTS HERE ---------->
   const thumbnail = document.createElement("img");
   const thumbnailContainer = document.createElement("div");

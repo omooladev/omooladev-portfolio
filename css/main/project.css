@@ -1,0 +1,30 @@
+#project .projects-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#project .projects-container {
+  padding: 50px 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden;
+  gap: 1.5rem;
+}
+#project .projects-container .project {
+  max-width: 25rem;
+  overflow: hidden;
+  background-color: #eee;
+  border: 1px solid red;
+  border-radius: 0.5rem;
+}
+#project .projects-container .project .thumbnail-container {
+  overflow: hidden;
+  background-color: pink;
+}
+#project .projects-container .project .thumbnail-container img {
+  object-fit: cover;
+  width: 100%;
+}
