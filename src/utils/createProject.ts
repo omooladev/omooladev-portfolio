@@ -1,14 +1,7 @@
 const projectContainer = document.querySelector(".projects-container") as HTMLElement;
-interface Project {
-  name: string;
-  description: string;
-  Links: { github: string; demo: string };
-  technologies: object[];
-  thumbnail: string;
-}
+
 export const createProject = (project: Project) => {
   const singleProject = document.createElement("div");
-  console.log(project);
   //imp<---------- THUMBNAIL STARTS HERE ---------->
   const thumbnail = document.createElement("img");
   const thumbnailContainer = document.createElement("div");
@@ -22,6 +15,7 @@ export const createProject = (project: Project) => {
   const projectName = document.createElement("h3");
   const projectDescription = document.createElement("p");
   const projectTechnologies = document.createElement("div");
+  createProjectTechnologies(project.technologies, projectTechnologies);
   const projectDetailsContainer = document.createElement("div");
   //----------> texts
   projectName.innerHTML = project.name;
@@ -39,4 +33,19 @@ export const createProject = (project: Project) => {
   singleProject.appendChild(thumbnailContainer);
   singleProject.appendChild(projectDetailsContainer);
   projectContainer.appendChild(singleProject);
+};
+
+const createProjectTechnologies = (technologies: updatedTechnologies[], projectTechnologies: HTMLElement) => {
+  for (let index = 0; index < technologies.length; index++) {
+    //----------> create elements
+    const icon = document.createElement("i");
+    const name = document.createElement("p");
+    const technology = document.createElement("div");
+    //----------> add classes and inner html
+    icon.className = technologies[index].technologyIcon;
+    name.innerHTML = technologies[index].technologyName;
+    technology.classList.add("technology");
+    technology.append(icon, name);
+    projectTechnologies.appendChild(technology);
+  }
 };

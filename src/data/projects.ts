@@ -2,12 +2,12 @@
 const generateLinkToThumbnail = (imageName: string) => {
   return `../../assets/project-images/${imageName}`;
 };
-const updateTechnologiesWithIcon = (technologies: string[]): object[] => {
-  const updatedTechnologies: object[] = [];
+const updateTechnologiesWithIcon = (technologies: string[]): updatedTechnologies[] => {
+  const updatedTechnologies: updatedTechnologies[] = [];
   for (let index = 0; index < technologies.length; index++) {
     if (technologies[index] === "HTML5") {
       let technologyName = technologies[index];
-      let technologyIcon = `i class="bx bxl-html5"></i>`;
+      let technologyIcon = "bx bxl-html5";
       updatedTechnologies.push({ technologyName, technologyIcon });
     }
   }
