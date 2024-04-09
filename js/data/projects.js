@@ -1,3 +1,4 @@
+import { updateTechnology } from "../utils/updateTechnology.js";
 //----------> Display 4 main projects
 const generateLinkToThumbnail = (imageName) => {
     return `../../assets/project-images/${imageName}`;
@@ -5,10 +6,9 @@ const generateLinkToThumbnail = (imageName) => {
 const updateTechnologiesWithIcon = (technologies) => {
     const updatedTechnologies = [];
     for (let index = 0; index < technologies.length; index++) {
-        if (technologies[index] === "HTML5") {
-            let technologyName = technologies[index];
-            let technologyIcon = "bx bxl-html5";
-            updatedTechnologies.push({ technologyName, technologyIcon });
+        const update = updateTechnology(technologies[index]);
+        if (update) {
+            updatedTechnologies.push(update);
         }
     }
     return updatedTechnologies;
@@ -20,13 +20,13 @@ export const projects = {
             name: "FlowNews",
             description: "An interactive news platform that provides users with up-to-date global news and offers registration for contributors .This feature enables users to share their own content and local events, ensuring continuous updates for all.",
             Links: { github: "https://github.com/omooladev/flownews", demo: "https://flownews.netlify.app" },
-            tech: ["HTML5", "CSS3", "SCSS", "ReactJS", "NodeJS", "ExpressJS", "MongoDB"],
             technologies: updateTechnologiesWithIcon([
                 "HTML5",
                 "CSS3",
-                "SCSS",
-                "ReactJS",
-                "NodeJS",
+                "Sass",
+                "Javascript",
+                "React",
+                "Node.js",
                 "ExpressJS",
                 "MongoDB",
             ]),
@@ -43,10 +43,11 @@ export const projects = {
             technologies: updateTechnologiesWithIcon([
                 "HTML5",
                 "CSS3",
-                "SCSS",
+                "Sass",
+                "Javascript",
                 "Typescript",
                 "EJS",
-                "NodeJS",
+                "Node.js",
                 "ExpressJS",
                 "MongoDB",
                 "Cloudinary",
