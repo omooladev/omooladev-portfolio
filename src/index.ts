@@ -4,7 +4,6 @@ const themeContainer = document.querySelector(".theme-container") as HTMLElement
 const lightThemeIcon = document.querySelector(".light-theme-icon") as HTMLElement;
 const darkThemeIcon = document.querySelector(".dark-theme-icon") as HTMLElement;
 const navigationList = document.querySelectorAll(".navigation-list") as NodeListOf<HTMLElement>;
-
 const makeNavigationLinkActive = (event: Event) => {
   let targetElement = event.target as HTMLElement;
   //----------> remove all the active classes
