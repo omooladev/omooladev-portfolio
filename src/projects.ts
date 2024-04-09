@@ -1,6 +1,6 @@
 import { projects } from "./data/projects.js";
 import { createProject } from "./utils/createProject.js";
-const projectContainer = document.querySelector(".projects-container");
+
 const mainProjects = projects.main;
 const moreProjects = projects.more;
 
