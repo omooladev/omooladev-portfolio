@@ -69,6 +69,10 @@
   height: 15px;
   margin-top: -0.1rem;
 }
+#project .projects-container .project .project-details_technologies .technology img.type-1 {
+  width: 100px;
+  object-fit: cover;
+}
 #project .projects-container .project .link-container {
   align-self: flex-end;
   padding: 1rem;

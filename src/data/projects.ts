@@ -2,7 +2,7 @@ import { updateTechnology } from "../utils/updateTechnology.js";
 
 //----------> Display 4 main projects
 const generateLinkToThumbnail = (imageName: string) => {
-  return `../../assets/project-images/${imageName}`;
+  return `./assets/project-images/${imageName}`;
 };
 const updateTechnologiesWithIcon = (technologies: string[]): updatedTechnologies[] => {
   const updatedTechnologies: updatedTechnologies[] = [];

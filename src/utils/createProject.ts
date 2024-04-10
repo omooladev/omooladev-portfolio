@@ -42,22 +42,33 @@ const createProjectDetails = (project: Project, singleProject: HTMLDivElement) =
 const createProjectTechnologies = (technologies: updatedTechnologies[], projectTechnologies: HTMLElement) => {
   for (let index = 0; index < technologies.length; index++) {
     //----------> create elements
-    const name = document.createElement("p");
+
     const technology = document.createElement("div");
     //----------> add classes and inner html
-    name.innerHTML = technologies[index].technologyName;
+
     technology.classList.add("technology");
+
     if (technologies[index].technologyIcon) {
       const icon = document.createElement("i");
       icon.className = technologies[index].technologyIcon;
       technology.append(icon);
     }
     if (technologies[index].technologyImageSrc) {
+      let src = technologies[index].technologyImageSrc;
       const image = document.createElement("img");
+      if (technologies[index].technologyImageSrc.includes("style-different")) {
+        src = src.split("?")[0];
+        image.classList.add("type-1"); //----------> type 1 has the image and name together
+      }
       image.setAttribute("src", technologies[index].technologyImageSrc);
       technology.append(image);
     }
-    technology.append(name);
+    if (technologies[index].technologyName) {
+      const name = document.createElement("p");
+      name.innerHTML = technologies[index].technologyName;
+      technology.append(name);
+    }
+
     projectTechnologies.appendChild(technology);
   }
 };
