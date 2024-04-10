@@ -99,6 +99,31 @@ h1 {
   color: var(--active-btn-background-hover-color);
 }
 
+i.html-icon {
+  color: #e34f26;
+}
+i.css-icon {
+  color: #1572b6;
+}
+i.sass-icon {
+  color: #cc6699;
+}
+i.javascript-icon {
+  color: #f7df1e;
+}
+i.react-icon {
+  color: #61dafb;
+}
+i.node-icon {
+  color: #339933;
+}
+i.mongodb-icon {
+  color: #47a248;
+}
+i.typescript-icon {
+  color: #007acc;
+}
+
 .pt-20 {
   padding-top: 20px;
 }

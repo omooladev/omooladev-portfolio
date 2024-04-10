@@ -89,6 +89,32 @@ h1 {
     }
   }
 }
+i {
+  &.html-icon {
+    color: #e34f26;
+  }
+  &.css-icon {
+    color: #1572b6;
+  }
+  &.sass-icon {
+    color: #cc6699;
+  }
+  &.javascript-icon {
+    color: #f7df1e;
+  }
+  &.react-icon {
+    color: #61dafb;
+  }
+  &.node-icon {
+    color: #339933;
+  }
+  &.mongodb-icon {
+    color: #47a248;
+  }
+  &.typescript-icon {
+    color: #007acc;
+  }
+}
 .pt-20 {
   padding-top: 20px;
 }
