@@ -16,7 +16,7 @@ const updateTechnologiesWithIcon = (technologies: string[]): updatedTechnologies
 };
 export const projects = {
   main: [
-    //<----------- PROJECT 1 ---------->\\
+    //imp<----------- PROJECT 1 ---------->\\
     {
       name: "FlowNews",
       description:
@@ -34,7 +34,7 @@ export const projects = {
       ]),
       thumbnail: generateLinkToThumbnail("flownews.PNG"), //----------> Link to the image
     },
-    //<----------- PROJECT 1 ---------->\\
+    //imp<----------- PROJECT 2 ---------->\\
     {
       name: "ShopCommerce",
       description:
@@ -56,6 +56,25 @@ export const projects = {
         "Cloudinary",
       ]),
       thumbnail: generateLinkToThumbnail("shopcommerce.PNG"), //----------> Link to the image
+    },
+    //imp<----------- PROJECT 3 ---------->\\
+    {
+      name: "Cropify",
+      description:
+        "Cropify allows you to effortlessly crop any image in your collection, regardless of format. It takes the hassle out of image cropping, making it accessible to everyone, regardless of technical expertise.",
+      Links: {
+        github: "https://github.com/omooladev/Cropify",
+        demo: "https://cropify.vercel.app/",
+      },
+      technologies: updateTechnologiesWithIcon([
+        "HTML5",
+        "CSS3",
+        "Sass",
+        "Javascript",
+        "Webpack",
+        "Cropper.Js"
+      ]),
+      thumbnail: generateLinkToThumbnail("cropify.PNG"), //----------> Link to the image
     },
   ],
   more: [{}],

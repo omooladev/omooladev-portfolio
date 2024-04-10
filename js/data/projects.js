@@ -15,7 +15,7 @@ const updateTechnologiesWithIcon = (technologies) => {
 };
 export const projects = {
     main: [
-        //<----------- PROJECT 1 ---------->\\
+        //imp<----------- PROJECT 1 ---------->\\
         {
             name: "FlowNews",
             description: "An interactive news platform that provides users with up-to-date global news and offers registration for contributors .This feature enables users to share their own content and local events, ensuring continuous updates for all.",
@@ -32,7 +32,7 @@ export const projects = {
             ]),
             thumbnail: generateLinkToThumbnail("flownews.PNG"), //----------> Link to the image
         },
-        //<----------- PROJECT 1 ---------->\\
+        //imp<----------- PROJECT 2 ---------->\\
         {
             name: "ShopCommerce",
             description: "An e-commerce platform enabling users to browse and purchase products, with administrative capabilities for adding, editing, and deleting products",
@@ -53,6 +53,24 @@ export const projects = {
                 "Cloudinary",
             ]),
             thumbnail: generateLinkToThumbnail("shopcommerce.PNG"), //----------> Link to the image
+        },
+        //imp<----------- PROJECT 3 ---------->\\
+        {
+            name: "Cropify",
+            description: "Cropify allows you to effortlessly crop any image in your collection, regardless of format. It takes the hassle out of image cropping, making it accessible to everyone, regardless of technical expertise.",
+            Links: {
+                github: "https://github.com/omooladev/Cropify",
+                demo: "https://cropify.vercel.app/",
+            },
+            technologies: updateTechnologiesWithIcon([
+                "HTML5",
+                "CSS3",
+                "Sass",
+                "Javascript",
+                "Webpack",
+                "Cropper.Js"
+            ]),
+            thumbnail: generateLinkToThumbnail("cropify.PNG"), //----------> Link to the image
         },
     ],
     more: [{}],

@@ -2,15 +2,22 @@ const projectContainer = document.querySelector(".projects-container");
 export const createProject = (project) => {
     const singleProject = document.createElement("div");
     singleProject.classList.add("project");
-    //imp<---------- THUMBNAIL STARTS HERE ---------->
-    const thumbnail = document.createElement("img");
+    createThumbnail(project, singleProject);
+    createProjectDetails(project, singleProject);
+    createProjectLink(project, singleProject);
+    projectContainer.appendChild(singleProject);
+};
+const createThumbnail = (project, singleProject) => {
     const thumbnailContainer = document.createElement("div");
+    const thumbnail = document.createElement("img");
     //----------> attributes and classes
     thumbnail.setAttribute("src", project.thumbnail);
     thumbnail.alt = `An image of the ${project.name} project`;
     thumbnailContainer.classList.add("thumbnail-container");
-    //imp<---------- THUMBNAIL ENDS HERE---------->
-    //imp<---------- PROJECT DETAILS STARTS HERE ---------->
+    thumbnailContainer.appendChild(thumbnail);
+    singleProject.appendChild(thumbnailContainer);
+};
+const createProjectDetails = (project, singleProject) => {
     const projectName = document.createElement("h3");
     const projectDescription = document.createElement("p");
     const projectTechnologies = document.createElement("div");
@@ -24,25 +31,48 @@ export const createProject = (project) => {
     projectDescription.classList.add("project-details_description");
     projectTechnologies.classList.add("project-details_technologies");
     projectDetailsContainer.classList.add("project-details");
-    //imp<---------- PROJECT DETAILS ENDS HERE ---------->
-    //----------> append children
-    thumbnailContainer.appendChild(thumbnail);
+    //---------->append children
     projectDetailsContainer.append(projectName, projectDescription, projectTechnologies);
-    singleProject.appendChild(thumbnailContainer);
-    singleProject.appendChild(projectDetailsContainer);
-    projectContainer.appendChild(singleProject);
+    singleProject.append(projectDetailsContainer);
 };
 const createProjectTechnologies = (technologies, projectTechnologies) => {
     for (let index = 0; index < technologies.length; index++) {
         //----------> create elements
-        const icon = document.createElement("i");
         const name = document.createElement("p");
         const technology = document.createElement("div");
         //----------> add classes and inner html
-        icon.className = technologies[index].technologyIcon;
         name.innerHTML = technologies[index].technologyName;
         technology.classList.add("technology");
-        technology.append(icon, name);
+        if (technologies[index].technologyIcon) {
+            const icon = document.createElement("i");
+            icon.className = technologies[index].technologyIcon;
+            technology.append(icon);
+        }
+        if (technologies[index].technologyImageSrc) {
+            const image = document.createElement("img");
+            image.setAttribute("src", technologies[index].technologyImageSrc);
+            technology.append(image);
+        }
+        technology.append(name);
         projectTechnologies.appendChild(technology);
     }
+};
+const createProjectLink = (project, singleProject) => {
+    const linkContainer = document.createElement("div");
+    const githubLink = document.createElement("a");
+    const demoLink = document.createElement("a");
+    const githubIcon = document.createElement("i");
+    const demoIcon = document.createElement("i");
+    //---------->attributes and classes
+    githubLink.setAttribute("href", project.Links.github);
+    githubLink.setAttribute("target", "_blank");
+    demoLink.setAttribute("href", project.Links.demo);
+    demoLink.setAttribute("target", "_blank");
+    githubIcon.className = "bx bxl-github";
+    demoIcon.className = "bx bx-link-external";
+    linkContainer.classList.add("link-container");
+    githubLink.appendChild(githubIcon);
+    demoLink.appendChild(demoIcon);
+    linkContainer.append(githubLink, demoLink);
+    singleProject.append(linkContainer);
 };
