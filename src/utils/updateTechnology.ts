@@ -46,12 +46,12 @@ export const updateTechnology = (name: string) => {
     let technologyImageSrc = "./assets/icons/webpack.svg";
     return { technologyName, technologyIcon, technologyImageSrc };
   }
-  if (name === "Cropper.Js") {
-    let technologyName = name;
-    let technologyIcon = "";
-    let technologyImageSrc = "";
-    return { technologyName, technologyIcon, technologyImageSrc };
-  }
+  // if (name === "Cropper.Js") {
+  //   let technologyName = name;
+  //   let technologyIcon = "";
+  //   let technologyImageSrc = "";
+  //   return { technologyName, technologyIcon, technologyImageSrc };
+  // }
   if (name === "Cloudinary") {
     let technologyName = ""; //----------> we make this empty because the cloudinary icon has the name already
     let technologyIcon = "";
@@ -62,4 +62,3 @@ export const updateTechnology = (name: string) => {
 
 //Express.js
 //"EJS",
-//"Cloudinary",

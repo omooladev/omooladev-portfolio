@@ -1,4 +1,4 @@
-#project .projects-container .project .link-container, #project .projects-container .project .project-details_technologies .technology, #project .projects-container .project .project-details_technologies, #project .projects-container .project, #project .projects-container {
+#project .button-container .active-link, #project .projects-container .project .link-container, #project .projects-container .project .project-details_technologies .technology, #project .projects-container .project .project-details_technologies, #project .projects-container .project, #project .projects-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -70,7 +70,8 @@
   margin-top: -0.1rem;
 }
 #project .projects-container .project .project-details_technologies .technology img.type-1 {
-  width: 100px;
+  margin-top: 0;
+  width: 105px;
   object-fit: cover;
 }
 #project .projects-container .project .link-container {
@@ -88,4 +89,13 @@
   color: var(--text-color);
   transition: all 0.3s ease;
   scale: 1;
+}
+#project .button-container {
+  border-radius: 0.5rem;
+}
+#project .button-container .active-link {
+  padding: 0.5rem 0.6rem;
+}
+#project .button-container .active-link i {
+  font-size: 1.1rem;
 }

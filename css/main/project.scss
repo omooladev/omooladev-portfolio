@@ -63,7 +63,8 @@
               height: 15px;
               margin-top: -0.1rem;
               &.type-1 {
-                width: 100px;
+                margin-top: 0;
+                width: 105px;
                 object-fit: cover;
               }
             }
@@ -90,6 +91,16 @@
             scale: 1;
           }
         }
+      }
+    }
+  }
+  .button-container {
+    border-radius: 0.5rem;
+    .active-link {
+      padding: 0.5rem 0.6rem;
+      @extend %DisplayFlex;
+      i {
+        font-size: 1.1rem;
       }
     }
   }
