@@ -40,6 +40,7 @@
   --active-btn-background-color: var(--pry-800);
   --active-btn-background-hover-color: var(--pry-600);
   --active-btn-color: var(--pry-50);
+  --project-background-color: var(--pry-100);
   --offcanvas-title-color: var(--pry-100);
   --offcanvas-social-media-color: var(--pry-200);
   --nav-links-size: 1.1rem;
@@ -69,6 +70,7 @@
   --active-btn-background-color: var(--pry-400);
   --active-btn-background-hover-color: var(--pry-300);
   --active-btn-color: var(--pry-50);
+  --project-background-color: #1e1e1f;
 }
 
 body {

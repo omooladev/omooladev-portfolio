@@ -1,4 +1,4 @@
-#project .projects-container {
+#project .projects-container .project .project-details_technologies .technology, #project .projects-container .project .project-details_technologies, #project .projects-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,17 +14,74 @@
   gap: 1.5rem;
 }
 #project .projects-container .project {
-  max-width: 25rem;
+  max-width: 20rem;
   overflow: hidden;
-  background-color: #eee;
-  border: 1px solid red;
+  background-color: var(--project-background-color);
+  border: 1px solid var(--project-background-color);
   border-radius: 0.5rem;
 }
 #project .projects-container .project .thumbnail-container {
   overflow: hidden;
-  background-color: pink;
 }
 #project .projects-container .project .thumbnail-container img {
   object-fit: cover;
   width: 100%;
+}
+#project .projects-container .project .project-details {
+  padding: 1rem;
+}
+#project .projects-container .project .project-details_name {
+  color: var(--text-color);
+  padding: 0.5rem 0;
+}
+#project .projects-container .project .project-details_description {
+  font-size: 0.9rem;
+  line-height: 1.35rem;
+  padding: 0.5rem 0;
+  color: var(--text-color-2);
+  overflow: hidden;
+  height: 120px;
+}
+#project .projects-container .project .project-details_technologies {
+  padding: 0.5rem 0;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+#project .projects-container .project .project-details_technologies .technology {
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  gap: 0.3rem;
+}
+#project .projects-container .project .project-details_technologies .technology i {
+  color: var(--text-color);
+}
+#project .projects-container .project .project-details_technologies .technology i.html-icon {
+  color: #e34f26;
+}
+#project .projects-container .project .project-details_technologies .technology i.css-icon {
+  color: #1572b6;
+}
+#project .projects-container .project .project-details_technologies .technology i.sass-icon {
+  color: #cc6699;
+}
+#project .projects-container .project .project-details_technologies .technology i.javascript-icon {
+  color: #f7df1e;
+}
+#project .projects-container .project .project-details_technologies .technology i.react-icon {
+  color: #61dafb;
+}
+#project .projects-container .project .project-details_technologies .technology i.node-icon {
+  color: #339933;
+}
+#project .projects-container .project .project-details_technologies .technology i.mongodb-icon {
+  color: #47a248;
+}
+#project .projects-container .project .project-details_technologies .technology i.typescript-icon {
+  color: #007acc;
+}
+#project .projects-container .project .project-details_technologies .technology p {
+  font-size: 0.8rem;
+  color: var(--text-color);
 }

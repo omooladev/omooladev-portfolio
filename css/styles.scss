@@ -44,6 +44,7 @@
   --active-btn-background-color: var(--pry-800);
   --active-btn-background-hover-color: var(--pry-600);
   --active-btn-color: var(--pry-50);
+  --project-background-color: var(--pry-100);
 
   // shared styles between light and dark mode
   --offcanvas-title-color: var(--pry-100);
@@ -77,6 +78,7 @@
     --active-btn-background-color: var(--pry-400);
     --active-btn-background-hover-color: var(--pry-300);
     --active-btn-color: var(--pry-50);
+    --project-background-color: #1e1e1f;
   }
 }
 body {
