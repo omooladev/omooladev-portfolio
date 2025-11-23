@@ -44,7 +44,7 @@ export default function Home() {
       <section id="about" className="wrapper section-padding">
         <h2 className="section-header">About Me</h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+          <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed order-2 md:order-1">
             <p>
               Hello! I&apos;m Omosuyi Olawole, also known as omooladev, a dedicated software engineer from Lagos,
               Nigeria, specializing in web application development. My core expertise lies in Javascript, and I
@@ -87,10 +87,10 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative order-1 md:order-2">
             <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl rotate-6 animate-pulse-slow" />
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full rotate-6 animate-pulse-slow" />
+              <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl">
                 <Image
                   src="/images/profile-image.jpeg"
                   alt="Omosuyi Olawole"

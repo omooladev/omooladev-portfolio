@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { projects, getProjectBySlug } from "@/data/projects";
+import { projects, getProjectBySlug, getSimilarProjects } from "@/data/projects";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -41,7 +41,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
   return (
     <div className="pt-24 pb-20">
       {/* Hero Section */}
-      <div className="relative h-[60vh] min-h-[400px] bg-gray-900">
+      <div className="relative min-h-[400px] md:h-[60vh] bg-gray-900">
         <Image
           src={project.thumbnail}
           alt={project.name}
@@ -51,32 +51,32 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex items-center">
-          <div className="wrapper">
+          <div className="wrapper py-8">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 md:mb-6 transition-colors text-sm md:text-base"
             >
-              <i className="bx bx-left-arrow-alt text-2xl" />
-              Back to Projects
+              <i className="bx bx-left-arrow-alt text-xl md:text-2xl" />
+              <span>Back to Projects</span>
             </Link>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
               {project.name}
             </h1>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <a
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary flex items-center gap-2"
+                className="btn-primary flex items-center justify-center gap-2 text-sm md:text-base"
               >
                 <i className="fa-solid fa-external-link-alt" />
-                Live Demo
+                <span>Live Demo</span>
               </a>
               <a
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-gray-900 flex items-center gap-2"
+                className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-gray-900 flex items-center justify-center gap-2 text-sm md:text-base"
               >
                 <i className="fa-brands fa-github" />
                 View Code
@@ -222,7 +222,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 p-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
                 >
-                  <i className="fa-brands fa-twitter text-xl" />
+                  <i className="fa-brands fa-x-twitter text-xl" />
                 </a>
                 <a
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${project.links.demo}`}
@@ -237,14 +237,11 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
           </div>
         </div>
 
-        {/* Other Projects */}
+        {/* Similar Projects */}
         <div className="mt-20">
-          <h2 className="text-3xl font-bold mb-8">Other Projects</h2>
+          <h2 className="text-3xl font-bold mb-8">Similar Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects
-              .filter((p) => p.id !== project.id)
-              .slice(0, 3)
-              .map((otherProject) => (
+            {getSimilarProjects(project.id, 3).map((otherProject) => (
                 <Link
                   key={otherProject.id}
                   href={`/projects/${otherProject.id}`}

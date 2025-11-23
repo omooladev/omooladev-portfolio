@@ -2,6 +2,7 @@ export interface Technology {
   name: string;
   icon?: string;
   imageSrc?: string;
+  colorClass?: string;
 }
 
 export interface Project {
@@ -9,6 +10,7 @@ export interface Project {
   name: string;
   description: string;
   fullDescription?: string;
+  category: string; // e.g., "news", "ecommerce", "tools", "chat", etc.
   links: {
     github: string;
     demo: string;
@@ -22,19 +24,19 @@ export interface Project {
 
 const getTechnology = (name: string): Technology => {
   const techMap: { [key: string]: Technology } = {
-    "HTML5": { name: "HTML5", icon: "bx bxl-html5" },
-    "CSS3": { name: "CSS3", icon: "bx bxl-css3" },
-    "Sass": { name: "Sass", icon: "bx bxl-sass" },
-    "Javascript": { name: "Javascript", icon: "bx bxl-javascript" },
-    "Typescript": { name: "Typescript", icon: "bx bxl-typescript" },
-    "React": { name: "React", icon: "bx bxl-react" },
-    "Node.js": { name: "Node.js", icon: "bx bxl-nodejs" },
-    "MongoDB": { name: "MongoDB", icon: "bx bxl-mongodb" },
-    "ExpressJS": { name: "ExpressJS", icon: "bx bxs-server" },
+    "HTML5": { name: "HTML5", icon: "bx bxl-html5", colorClass: "text-orange-600" },
+    "CSS3": { name: "CSS3", icon: "bx bxl-css3", colorClass: "text-blue-600" },
+    "Sass": { name: "Sass", icon: "bx bxl-sass", colorClass: "text-pink-500" },
+    "Javascript": { name: "Javascript", icon: "bx bxl-javascript", colorClass: "text-yellow-400" },
+    "Typescript": { name: "Typescript", icon: "bx bxl-typescript", colorClass: "text-blue-600" },
+    "React": { name: "React", icon: "bx bxl-react", colorClass: "text-cyan-500" },
+    "Node.js": { name: "Node.js", icon: "bx bxl-nodejs", colorClass: "text-green-600" },
+    "MongoDB": { name: "MongoDB", icon: "bx bxl-mongodb", colorClass: "text-green-500" },
+    "ExpressJS": { name: "ExpressJS", icon: "bx bxs-server", colorClass: "text-gray-600 dark:text-gray-400" },
     "Webpack": { name: "Webpack", imageSrc: "/icons/webpack.svg" },
     "Cloudinary": { name: "", imageSrc: "/icons/cloudinary.svg" },
-    "EJS": { name: "EJS", icon: "bx bx-code-block" },
-    "Cropper.Js": { name: "Cropper.Js", icon: "bx bx-crop" },
+    "EJS": { name: "EJS", icon: "bx bx-code-block", colorClass: "text-gray-700 dark:text-gray-300" },
+    "Cropper.Js": { name: "Cropper.Js", icon: "bx bx-crop", colorClass: "text-blue-500" },
   };
 
   return techMap[name] || { name };
@@ -46,6 +48,7 @@ export const projects: Project[] = [
     name: "FlowNews",
     description: "An interactive news platform that provides users with up-to-date global news and offers registration for contributors. This feature enables users to share their own content and local events, ensuring continuous updates for all.",
     fullDescription: "FlowNews is a comprehensive news platform built with the MERN stack. It allows users to browse the latest news from around the world while also giving them the ability to become contributors and share their own stories. The platform features user authentication, a rich text editor for creating articles, and a responsive design that works seamlessly across all devices.",
+    category: "news",
     links: {
       github: "https://github.com/omooladev/flownews",
       demo: "https://flownews.netlify.app"
@@ -81,6 +84,7 @@ export const projects: Project[] = [
     name: "ShopCommerce",
     description: "An e-commerce platform enabling users to browse and purchase products, with administrative capabilities for adding, editing, and deleting products",
     fullDescription: "ShopCommerce is a full-featured e-commerce solution that provides both customer and admin interfaces. Customers can browse products, add items to their cart, and complete purchases securely. Administrators have access to a comprehensive dashboard for managing products, orders, and inventory with image upload capabilities via Cloudinary.",
+    category: "ecommerce",
     links: {
       github: "https://github.com/omooladev/ShopCommerce",
       demo: "https://shopcommerce.onrender.com"
@@ -119,6 +123,7 @@ export const projects: Project[] = [
     name: "Cropify",
     description: "Cropify allows you to effortlessly crop any image in your collection, regardless of format. It takes the hassle out of image cropping, making it accessible to everyone, regardless of technical expertise.",
     fullDescription: "Cropify is a user-friendly image cropping tool built with modern web technologies. It leverages the Cropper.js library to provide professional-grade image cropping capabilities directly in the browser. The application is bundled with Webpack for optimal performance and supports various image formats.",
+    category: "tools",
     links: {
       github: "https://github.com/omooladev/Cropify",
       demo: "https://cropify.vercel.app/"
@@ -151,4 +156,26 @@ export const projects: Project[] = [
 
 export const getProjectBySlug = (slug: string): Project | undefined => {
   return projects.find(project => project.id === slug);
+};
+
+export const getSimilarProjects = (currentProjectId: string, limit: number = 3): Project[] => {
+  const currentProject = projects.find(p => p.id === currentProjectId);
+  if (!currentProject) return projects.filter(p => p.id !== currentProjectId).slice(0, limit);
+
+  // First, get projects from the same category
+  const sameCategory = projects.filter(
+    p => p.id !== currentProjectId && p.category === currentProject.category
+  );
+
+  // If we have enough projects from same category, return them
+  if (sameCategory.length >= limit) {
+    return sameCategory.slice(0, limit);
+  }
+
+  // Otherwise, fill remaining slots with other projects
+  const otherProjects = projects.filter(
+    p => p.id !== currentProjectId && p.category !== currentProject.category
+  );
+
+  return [...sameCategory, ...otherProjects].slice(0, limit);
 };

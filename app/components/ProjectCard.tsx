@@ -90,9 +90,9 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
           {project.technologies.slice(0, 5).map((tech, index) => (
             <span
               key={index}
-              className="flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm"
+              className="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-full text-sm"
             >
-              {tech.icon && <i className={`${tech.icon} text-lg`} />}
+              {tech.icon && <i className={`${tech.icon} text-lg ${tech.colorClass || ''}`} />}
               {tech.imageSrc && (
                 <Image
                   src={tech.imageSrc}
@@ -102,7 +102,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
                   className="w-5 h-5"
                 />
               )}
-              {tech.name && <span>{tech.name}</span>}
+              {tech.name && <span className="text-gray-700 dark:text-gray-300">{tech.name}</span>}
             </span>
           ))}
           {project.technologies.length > 5 && (
