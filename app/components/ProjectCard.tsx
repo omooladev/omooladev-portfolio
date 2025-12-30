@@ -63,7 +63,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
             className="p-2 bg-white/90 dark:bg-zinc-800/90 rounded-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
             onClick={(e) => e.stopPropagation()}
           >
-            <i className="fa-brands fa-github text-xl text-gray-900 dark:text-gray-100" />
+            <i className="fa-brands fa-github text-xl text-gray-900 dark:text-gray-100" aria-hidden="true" />
           </a>
           <a
             href={project.links.demo}
@@ -72,7 +72,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
             className="p-2 bg-white/90 dark:bg-zinc-800/90 rounded-lg hover:bg-white dark:hover:bg-zinc-700 transition-colors"
             onClick={(e) => e.stopPropagation()}
           >
-            <i className="fa-solid fa-external-link-alt text-xl text-gray-900 dark:text-gray-100" />
+            <i className="fa-solid fa-external-link-alt text-xl text-gray-900 dark:text-gray-100" aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
 
         <Link
           href={`/projects/${project.id}`}
-          className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-500 hover:gap-3 transition-all font-medium"
+          className="inline-flex items-center gap-2 text-primary dark:text-primary-dark hover:gap-3 transition-all font-medium"
         >
           View Details
           <i className="bx bx-right-arrow-alt text-2xl" />

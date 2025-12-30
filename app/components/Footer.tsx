@@ -11,31 +11,35 @@ export default function Footer() {
               href="https://x.com/omooladev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors"
+              aria-label="Twitter"
             >
-              <i className="fa-brands fa-x-twitter text-xl" />
+              <i className="fa-brands fa-x-twitter text-xl" aria-hidden="true" />
             </a>
             <a
               href="https://www.linkedin.com/in/omosuyiolawole"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors"
+              aria-label="LinkedIn"
             >
-              <i className="fa-brands fa-linkedin-in text-xl" />
+              <i className="fa-brands fa-linkedin-in text-xl" aria-hidden="true" />
             </a>
             <a
               href="https://github.com/omooladev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors"
+              aria-label="GitHub"
             >
-              <i className="fa-brands fa-github text-xl" />
+              <i className="fa-brands fa-github text-xl" aria-hidden="true" />
             </a>
             <a
               href="mailto:omooladev@gmail.com"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors"
+              aria-label="Email"
             >
-              <i className="fa-regular fa-envelope text-xl" />
+              <i className="fa-regular fa-envelope text-xl" aria-hidden="true" />
             </a>
           </div>
         </div>

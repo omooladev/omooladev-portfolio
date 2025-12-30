@@ -6,8 +6,67 @@
 
 @layer base {
   :root {
-    --primary-light: #152b77;
-    --primary-dark: #18181b;
+    scroll-behavior: smooth;
+    --offcanvas-index: 1002;
+    --backdrop-index: 1001;
+    --header-index: 1000;
+    --pry-50: #f2f4fd;
+    --pry-100: #e3e7fb;
+    --pry-200: #c1cef6;
+    --pry-300: #8ba4ee;
+    --pry-400: #4d75e3;
+    --pry-500: #2654d1;
+    --pry-600: #173bb2;
+    --pry-700: #142f90;
+    --pry-800: #152b77;
+    --pry-900: #172763;
+    --pry-950: #050816;
+    --primary-color: var(--pry-800);
+    --body-color: var(--pry-50);
+    --header-color: var(--pry-800);
+    --nav-link-text-color: var(--pry-200);
+    --nav-link-hover-text-color: var(--pry-50);
+    --nav-link-active-text-color: var(--pry-50);
+    --offcanvas-color: var(--header-color);
+    --backdrop-color: var(--body-color);
+    --text-color: var(--pry-950);
+    --text-color-2: var(--pry-950);
+    --active-btn-background-color: var(--pry-800);
+    --active-btn-background-hover-color: var(--pry-600);
+    --active-btn-color: var(--pry-50);
+    --project-background-color: var(--pry-100);
+    --offcanvas-title-color: var(--pry-100);
+    --offcanvas-social-media-color: var(--pry-200);
+    --nav-links-size: 1.1rem;
+    --offcanvas-icon-size: 2rem;
+    --offcanvas-title-size: 1rem;
+    --offcanvas-social-media-size: 1.2rem;
+    --h1-fs: 4rem;
+    --h2-fs: 1.5rem;
+    --section-header-fs: 2rem;
+    --p-fs: 1rem;
+    --p-lh: 1.5rem;
+    --btn-fs: 0.8rem;
+  }
+
+  :root .dark-default {
+    --body-color: #18181b;
+    --primary-color: var(--pry-300);
+    --header-color: var(--pry-950);
+    --header-color: #18181b;
+    --nav-link-text-color: var(--pry-200);
+    --nav-link-hover-text-color: var(--pry-300);
+    --nav-link-active-text-color: var(--pry-300);
+    --offcanvas-color: var(--header-color);
+    --backdrop-color: var(--body-color);
+    --text-color: var(--pry-100);
+    --text-color-2: var(--pry-200);
+    --active-btn-background-color: var(--pry-300);
+    --active-btn-background-hover-color: var(--pry-400);
+    --active-btn-color: var(--pry-950);
+    --project-background-color: var(--pry-950);
+    --offcanvas-title-color: var(--pry-100);
+    --offcanvas-social-media-color: var(--pry-200);
   }
 
   body {
@@ -34,11 +93,11 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg;
+    @apply px-4 py-2 bg-primary dark:bg-primary-dark text-white rounded-lg hover:bg-primary/90 dark:hover:bg-primary-dark/90 transition-all duration-300 font-medium shadow-md hover:shadow-lg active:scale-90;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-500 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-all duration-300 font-medium;
+    @apply px-4 py-2 border-2 border-primary dark:border-primary-dark text-primary dark:text-primary-dark rounded-lg hover:bg-primary hover:text-white dark:hover:bg-primary-dark dark:hover:text-white transition-all duration-300 font-medium active:scale-90;
   }
 
   .card {
@@ -95,7 +154,8 @@
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     50% {
@@ -119,4 +179,39 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-500 dark:bg-zinc-500;
+}
+
+/* Technology Icon Colors */
+.html-icon {
+  color: #e34c26;
+}
+
+.css-icon {
+  color: #264de4;
+}
+
+.sass-icon {
+  color: #cc6699;
+}
+
+.javascript-icon {
+  color: #f0db4f;
+  background-color: #323330;
+  border-radius: 4px;
+}
+
+.typescript-icon {
+  color: #3178c6;
+}
+
+.react-icon {
+  color: #61dafb;
+}
+
+.node-icon {
+  color: #68a063;
+}
+
+.mongodb-icon {
+  color: #47a248;
 }

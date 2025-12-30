@@ -1,3 +1,5 @@
+import { getTechnologyIcon } from '@/app/utils/getTechnologyIcon';
+
 export interface Technology {
   name: string;
   icon?: string;
@@ -23,23 +25,23 @@ export interface Project {
 }
 
 const getTechnology = (name: string): Technology => {
-  const techMap: { [key: string]: Technology } = {
-    "HTML5": { name: "HTML5", icon: "bx bxl-html5", colorClass: "text-orange-600" },
-    "CSS3": { name: "CSS3", icon: "bx bxl-css3", colorClass: "text-blue-600" },
-    "Sass": { name: "Sass", icon: "bx bxl-sass", colorClass: "text-pink-500" },
-    "Javascript": { name: "Javascript", icon: "bx bxl-javascript", colorClass: "text-yellow-400" },
-    "Typescript": { name: "Typescript", icon: "bx bxl-typescript", colorClass: "text-blue-600" },
-    "React": { name: "React", icon: "bx bxl-react", colorClass: "text-cyan-500" },
-    "Node.js": { name: "Node.js", icon: "bx bxl-nodejs", colorClass: "text-green-600" },
-    "MongoDB": { name: "MongoDB", icon: "bx bxl-mongodb", colorClass: "text-green-500" },
-    "ExpressJS": { name: "ExpressJS", icon: "bx bxs-server", colorClass: "text-gray-600 dark:text-gray-400" },
+  const { technologyName, technologyIcon, technologyImageSrc } = getTechnologyIcon(name);
+
+  // Special cases with custom images
+  const specialCases: { [key: string]: Technology } = {
     "Webpack": { name: "Webpack", imageSrc: "/icons/webpack.svg" },
     "Cloudinary": { name: "", imageSrc: "/icons/cloudinary.svg" },
-    "EJS": { name: "EJS", icon: "bx bx-code-block", colorClass: "text-gray-700 dark:text-gray-300" },
-    "Cropper.Js": { name: "Cropper.Js", icon: "bx bx-crop", colorClass: "text-blue-500" },
   };
 
-  return techMap[name] || { name };
+  if (specialCases[name]) {
+    return specialCases[name];
+  }
+
+  return {
+    name: technologyName,
+    icon: technologyIcon,
+    imageSrc: technologyImageSrc,
+  };
 };
 
 export const projects: Project[] = [

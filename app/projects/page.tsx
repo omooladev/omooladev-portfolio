@@ -11,7 +11,7 @@ export default function ProjectsPage() {
     <div className="wrapper pt-32 pb-20">
       <div className="mb-12">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-          All <span className="text-blue-600 dark:text-blue-500">Projects</span>
+          All <span className="text-primary dark:text-primary-dark">Projects</span>
         </h1>
         <p className="text-gray-600 dark:text-gray-400 text-lg max-w-3xl">
           Here you&apos;ll find a comprehensive collection of my work. Each project represents a unique challenge

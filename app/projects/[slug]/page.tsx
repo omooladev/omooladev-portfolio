@@ -69,7 +69,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                 rel="noopener noreferrer"
                 className="btn-primary flex items-center justify-center gap-2 text-sm md:text-base"
               >
-                <i className="fa-solid fa-external-link-alt" />
+                <i className="fa-solid fa-external-link-alt" aria-hidden="true" />
                 <span>Live Demo</span>
               </a>
               <a
@@ -78,7 +78,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                 rel="noopener noreferrer"
                 className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-gray-900 flex items-center justify-center gap-2 text-sm md:text-base"
               >
-                <i className="fa-brands fa-github" />
+                <i className="fa-brands fa-github" aria-hidden="true" />
                 View Code
               </a>
             </div>
@@ -114,7 +114,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                       key={index}
                       className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-lg"
                     >
-                      <i className="bx bx-check-circle text-2xl text-blue-600 dark:text-blue-500 flex-shrink-0 mt-1" />
+                      <i className="bx bx-check-circle text-2xl text-primary dark:text-primary-dark flex-shrink-0 mt-1" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -157,7 +157,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             {/* Technologies */}
             <div className="card p-6">
               <h3 className="text-xl font-bold mb-4">Technologies Used</h3>
@@ -195,9 +195,9 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                   href={project.links.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+                  className="flex items-center gap-3 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
                 >
-                  <i className="fa-solid fa-external-link-alt text-xl" />
+                  <i className="fa-solid fa-external-link-alt text-xl" aria-hidden="true" />
                   <span className="font-medium">Visit Live Site</span>
                 </a>
                 <a
@@ -206,7 +206,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-zinc-700 text-gray-900 dark:text-gray-100 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
                 >
-                  <i className="fa-brands fa-github text-xl" />
+                  <i className="fa-brands fa-github text-xl" aria-hidden="true" />
                   <span className="font-medium">View Source Code</span>
                 </a>
               </div>
@@ -220,17 +220,19 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                   href={`https://twitter.com/intent/tweet?text=Check out ${project.name}&url=${project.links.demo}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 p-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
+                  aria-label="Share on Twitter"
                 >
-                  <i className="fa-brands fa-x-twitter text-xl" />
+                  <i className="fa-brands fa-x-twitter text-xl" aria-hidden="true" />
                 </a>
                 <a
                   href={`https://www.linkedin.com/sharing/share-offsite/?url=${project.links.demo}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 p-3 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
+                  aria-label="Share on LinkedIn"
                 >
-                  <i className="fa-brands fa-linkedin-in text-xl" />
+                  <i className="fa-brands fa-linkedin-in text-xl" aria-hidden="true" />
                 </a>
               </div>
             </div>
