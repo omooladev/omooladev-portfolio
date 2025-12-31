@@ -1,3 +1,0 @@
-interface LocalStorageData {
-  theme: string;
-}
