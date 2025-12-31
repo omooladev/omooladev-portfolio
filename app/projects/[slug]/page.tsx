@@ -16,16 +16,43 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) {
     return {
       title: "Project Not Found",
+      description: "The requested project could not be found.",
     };
   }
 
+  const technologies = project.technologies.map(tech => tech.name).filter(Boolean).join(', ');
+
   return {
-    title: `${project.name} | Omosuyi Olawole`,
-    description: project.description,
+    title: `${project.name} | Omosuyi Olawole - Full-Stack Developer`,
+    description: project.fullDescription || project.description,
+    keywords: [
+      project.name,
+      project.category,
+      ...project.technologies.map(tech => tech.name).filter(Boolean),
+      'Web Development',
+      'Portfolio Project',
+    ],
+    authors: [{ name: 'Omosuyi Olawole' }],
     openGraph: {
-      title: project.name,
+      title: `${project.name} | Omosuyi Olawole`,
+      description: project.description,
+      type: 'website',
+      url: `https://omooladev-portfolio-dev.vercel.app/projects/${project.id}`,
+      images: [
+        {
+          url: project.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: `${project.name} - ${project.category} project`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.name} | Omosuyi Olawole`,
       description: project.description,
       images: [project.thumbnail],
+      creator: '@omooladev',
     },
   };
 }

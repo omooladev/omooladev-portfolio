@@ -1,9 +1,40 @@
 import ProjectCard from "../components/ProjectCard";
 import { projects } from "@/data/projects";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Projects | Omosuyi Olawole",
-  description: "Explore all the projects I've worked on, showcasing my skills in web development.",
+export const metadata: Metadata = {
+  title: "Projects | Omosuyi Olawole - Full-Stack Developer",
+  description: "Explore my portfolio of web development projects. Built with React, Next.js, Node.js, TypeScript, and MongoDB. Real-world applications showcasing full-stack development skills.",
+  keywords: [
+    "Web Development Projects",
+    "React Projects",
+    "Next.js Projects",
+    "Node.js Projects",
+    "Full-Stack Projects",
+    "Portfolio",
+    "JavaScript Projects",
+    "TypeScript Projects",
+  ],
+  openGraph: {
+    title: "Projects | Omosuyi Olawole",
+    description: "Explore my portfolio of web development projects showcasing full-stack development skills.",
+    type: "website",
+    url: "https://omooladev-portfolio-dev.vercel.app/projects",
+    images: [
+      {
+        url: "/images/omooladev.png",
+        width: 1200,
+        height: 630,
+        alt: "Omosuyi Olawole Projects Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | Omosuyi Olawole",
+    description: "Explore my portfolio of web development projects showcasing full-stack development skills.",
+    images: ["/images/omooladev.png"],
+  },
 };
 
 export default function ProjectsPage() {
