@@ -12,9 +12,8 @@ export default function AboutSection() {
             most of my projects.
           </p>
           <p>
-            I graduated from the Civil Engineering Department of the Federal University of Technology. I have a keen
-            interest in crafting solutions using the best available tools. A critical thinker, I am deeply passionate
-            about problem-solving.
+            I have a keen interest in crafting solutions using the best available tools. A critical thinker, I am
+            deeply passionate about problem-solving.
           </p>
           <p>
             When I&apos;m not coding, you&apos;ll find me enjoying football games with friends, diving into books, or

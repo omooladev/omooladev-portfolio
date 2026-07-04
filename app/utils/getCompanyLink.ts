@@ -6,7 +6,7 @@
 export const getCompanyLink = (companyName: string): string | null => {
   const companyLinks: Record<string, string> = {
     "Combattix": "https://combattix.com",
-    "Polis": "https://polis.co.uk",
+    "Polis": "https://polis.ng",
     // Add more companies as needed
   };
 
