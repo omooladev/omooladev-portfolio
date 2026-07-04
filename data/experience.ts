@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
     id: "1",
     company: "Combattix",
     position: "Full-Stack Developer",
-    duration: "January 2025 - Present",
+    duration: "January 2025 - February 2026",
     location: "London, United Kingdom (Remote)",
     description: "Building and maintaining core platform features for a combat sports platform, implementing payment systems, search functionality, and scalable backend architecture.",
     responsibilities: [

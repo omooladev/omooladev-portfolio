@@ -21,7 +21,7 @@ export default function HeroSection() {
             Get in touch
           </a>
           <a
-            href="/pdfs/resumes/v1/omosuyi-olawole-resume.pdf"
+            href="/pdfs/Omosuyi_Olawole_Fullstack_Developer_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary text-center"

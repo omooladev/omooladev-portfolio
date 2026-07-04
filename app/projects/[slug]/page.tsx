@@ -90,24 +90,36 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
               {project.name}
             </h1>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <a
-                href={project.links.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary flex items-center justify-center gap-2 text-sm md:text-base"
-              >
-                <i className="fa-solid fa-external-link-alt" aria-hidden="true" />
-                <span>Live Demo</span>
-              </a>
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-gray-900 flex items-center justify-center gap-2 text-sm md:text-base"
-              >
-                <i className="fa-brands fa-github" aria-hidden="true" />
-                View Code
-              </a>
+              {project.links.demo && (
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary flex items-center justify-center gap-2 text-sm md:text-base"
+                >
+                  <i className="fa-solid fa-external-link-alt" aria-hidden="true" />
+                  <span>Live Demo</span>
+                </a>
+              )}
+              {project.privateRepo ? (
+                <span
+                  className="btn-secondary bg-white/5 border-white/40 text-white/60 cursor-not-allowed flex items-center justify-center gap-2 text-sm md:text-base"
+                  title="Private repository"
+                >
+                  <i className="fa-solid fa-lock" aria-hidden="true" />
+                  Private Repo
+                </span>
+              ) : (
+                <a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-gray-900 flex items-center justify-center gap-2 text-sm md:text-base"
+                >
+                  <i className="fa-brands fa-github" aria-hidden="true" />
+                  View Code
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -167,6 +179,106 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
               </div>
             )}
 
+            {/* Releases */}
+            {project.releases && project.releases.length > 0 && (
+              <div>
+                <h2 className="text-3xl font-bold mb-2">Release History</h2>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  {project.releases.length} shipped releases — a summarized changelog of how this
+                  product evolved over time.
+                </p>
+                <ol className="relative border-l-2 border-gray-200 dark:border-zinc-700 ml-2 space-y-6">
+                  {project.releases.map((release) => {
+                    const dotColor =
+                      release.category === "fix"
+                        ? "bg-yellow-500"
+                        : release.category === "docs"
+                          ? "bg-blue-500"
+                          : release.category === "internal"
+                            ? "bg-gray-400"
+                            : "bg-primary dark:bg-primary-dark";
+                    return (
+                      <li key={release.version} className="ml-6">
+                        <span
+                          className={`absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full ring-4 ring-white dark:ring-zinc-900 ${dotColor}`}
+                          aria-hidden="true"
+                        />
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1">
+                          <span className="font-mono text-sm font-semibold px-2 py-0.5 rounded bg-gray-100 dark:bg-zinc-700 text-gray-900 dark:text-gray-100">
+                            {release.version}
+                          </span>
+                          <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                            {release.title}
+                          </h3>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {release.date}
+                          </span>
+                        </div>
+                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                          {release.summary}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
+
+            {/* Social / Write-ups */}
+            {project.social && (project.social.posts?.length || project.social.searchUrl) && (
+              <div>
+                <h2 className="text-3xl font-bold mb-2">Social & Write-ups</h2>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  Posts where I share progress and lessons from building this project.
+                </p>
+                {project.social.posts && project.social.posts.length > 0 && (
+                  <ul className="space-y-3">
+                    {project.social.posts.map((post, index) => (
+                      <li key={index}>
+                        <a
+                          href={post.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-4 p-4 rounded-lg bg-gray-50 dark:bg-zinc-800 hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors"
+                        >
+                          <i
+                            className={`text-2xl flex-shrink-0 ${
+                              post.platform === "twitter"
+                                ? "fa-brands fa-x-twitter"
+                                : "fa-brands fa-linkedin text-[#0a66c2]"
+                            }`}
+                            aria-hidden="true"
+                          />
+                          <span className="flex-1">
+                            <span className="block font-medium text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-primary-dark transition-colors">
+                              {post.title}
+                            </span>
+                            {post.date && (
+                              <span className="block text-sm text-gray-500 dark:text-gray-400">
+                                {post.date}
+                              </span>
+                            )}
+                          </span>
+                          <i className="fa-solid fa-arrow-up-right-from-square text-gray-400 group-hover:text-primary dark:group-hover:text-primary-dark transition-colors" aria-hidden="true" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {project.social.searchUrl && (
+                  <a
+                    href={project.social.searchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-primary dark:text-primary-dark hover:gap-3 transition-all font-medium"
+                  >
+                    See all my posts about {project.name} on LinkedIn
+                    <i className="bx bx-right-arrow-alt text-2xl" />
+                  </a>
+                )}
+              </div>
+            )}
+
             {/* Live Preview */}
             {project.websitePreview && (
               <div>
@@ -218,24 +330,36 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
             <div className="card p-6">
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
               <div className="space-y-3">
-                <a
-                  href={project.links.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
-                >
-                  <i className="fa-solid fa-external-link-alt text-xl" aria-hidden="true" />
-                  <span className="font-medium">Visit Live Site</span>
-                </a>
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-zinc-700 text-gray-900 dark:text-gray-100 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
-                >
-                  <i className="fa-brands fa-github text-xl" aria-hidden="true" />
-                  <span className="font-medium">View Source Code</span>
-                </a>
+                {project.links.demo && (
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
+                  >
+                    <i className="fa-solid fa-external-link-alt text-xl" aria-hidden="true" />
+                    <span className="font-medium">Visit Live Site</span>
+                  </a>
+                )}
+                {project.privateRepo ? (
+                  <div
+                    className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-zinc-700 text-gray-400 dark:text-gray-500 rounded-lg cursor-not-allowed"
+                    title="Private repository"
+                  >
+                    <i className="fa-solid fa-lock text-xl" aria-hidden="true" />
+                    <span className="font-medium">Private Repository</span>
+                  </div>
+                ) : (
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-zinc-700 text-gray-900 dark:text-gray-100 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
+                  >
+                    <i className="fa-brands fa-github text-xl" aria-hidden="true" />
+                    <span className="font-medium">View Source Code</span>
+                  </a>
+                )}
               </div>
             </div>
 
@@ -244,7 +368,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
               <h3 className="text-xl font-bold mb-4">Share This Project</h3>
               <div className="flex gap-3">
                 <a
-                  href={`https://twitter.com/intent/tweet?text=Check out ${project.name}&url=${project.links.demo}`}
+                  href={`https://twitter.com/intent/tweet?text=Check out ${project.name}&url=${project.links.demo || project.links.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
@@ -253,7 +377,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                   <i className="fa-brands fa-x-twitter text-xl" aria-hidden="true" />
                 </a>
                 <a
-                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${project.links.demo}`}
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${project.links.demo || project.links.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
