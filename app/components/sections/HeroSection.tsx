@@ -13,7 +13,7 @@ export default function HeroSection() {
           <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
             I&apos;m a software developer focused on creating exceptional user experiences through code.
             I am passionate about continuous learning and exploring new technologies, frameworks, and
-            programming languages. Currently, my focus is on mastering Node.js, Typescript and Webpack.
+            programming languages.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
