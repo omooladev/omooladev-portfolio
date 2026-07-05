@@ -17,6 +17,10 @@
 
 ---
 
+> 📚 See [docs/project/docs-structure.md](docs/project/docs-structure.md) to understand how the project documentation is organized.
+
+---
+
 ## 👨‍💻 About Me
 
 I'm **Omosuyi Olawole** (also known as **omooladev**), a dedicated Full-Stack Software Engineer from Lagos, Nigeria, specializing in web application development. My core expertise lies in JavaScript, and I'm passionate about building exceptional user experiences through code.

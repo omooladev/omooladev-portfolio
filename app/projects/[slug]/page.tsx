@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { projects, getProjectBySlug, getSimilarProjects } from "@/data/projects";
+import ProjectGallery from "./ProjectGallery";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -142,6 +143,11 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                 </p>
               )}
             </div>
+
+            {/* Gallery */}
+            {project.gallery && project.gallery.length > 0 && (
+              <ProjectGallery images={project.gallery} projectName={project.name} />
+            )}
 
             {/* Features */}
             {project.features && project.features.length > 0 && (

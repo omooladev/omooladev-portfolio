@@ -16,6 +16,14 @@ export interface Release {
   category?: "feature" | "fix" | "docs" | "internal"; // colors the timeline dot
 }
 
+// An image shown in the project details gallery.
+// Resize every source image to 1280x720 (16:9) so the gallery renders uniformly.
+export interface GalleryImage {
+  src: string;
+  alt?: string; // falls back to the project name if omitted
+  caption?: string; // optional label shown under the image / in the lightbox
+}
+
 // A link to an external post/write-up about the project (e.g. a LinkedIn post).
 export interface SocialPost {
   title: string;
@@ -37,6 +45,7 @@ export interface Project {
   privateRepo?: boolean; // repo is private — disable the GitHub / "View Code" buttons
   technologies: Technology[];
   thumbnail: string;
+  gallery?: GalleryImage[]; // Extra screenshots shown in the details-page gallery
   websitePreview?: string; // For the hover effect showing the full website
   features?: string[];
   challenges?: string[];
@@ -82,7 +91,32 @@ export const projects: Project[] = [
     },
     privateRepo: true,
     technologies: [getTechnology('Next.js'), getTechnology('React'), getTechnology('Typescript'), getTechnology('Tailwind CSS'), getTechnology('MongoDB'), getTechnology('Node.js')],
-    thumbnail: '/project-images/knowli.PNG',
+    thumbnail: '/project-images/knowli.png',
+    // Add more screenshots here (resized to 1280x720). Drop the files in
+    // public/project-images/ and reference them with a lowercase path.
+    gallery: [
+      { src: '/project-images/gallery/knowli/home-page.png', alt: 'Knowli home page', caption: 'Home page' },
+      { src: '/project-images/gallery/knowli/signup-page.png', alt: 'Knowli sign-up page', caption: 'Create an account page' },
+      { src: '/project-images/gallery/knowli/login-page.png', alt: 'Knowli login page', caption: 'Login page' },
+      { src: '/project-images/gallery/knowli/creator-dashboard.png', alt: 'Knowli creator dashboard', caption: 'Creator dashboard' },
+      { src: '/project-images/gallery/knowli/dashboard-overview.jpg', alt: 'Knowli dashboard overview', caption: 'Dashboard overview' },
+      { src: '/project-images/gallery/knowli/quiz-page.jpg', alt: 'Knowli quiz page', caption: 'Quiz page' },
+      { src: '/project-images/gallery/knowli/quiz-start-page.jpg', alt: 'Knowli quiz start page', caption: 'Quiz start page' },
+      { src: '/project-images/gallery/knowli/quiz-question-page.jpg', alt: 'Knowli quiz question page', caption: 'Quiz question page' },
+      { src: '/project-images/gallery/knowli/quiz-result-page.png', alt: 'Knowli quiz result page', caption: 'Quiz result page' },
+      { src: '/project-images/gallery/knowli/quiz-gift-page.png', alt: 'Knowli quiz gift page', caption: 'Quiz gift page' },
+      { src: '/project-images/gallery/knowli/notifications-page.png', alt: 'Knowli notifications page', caption: 'Notifications page' },
+      { src: '/project-images/gallery/knowli/live-notification.jpeg', alt: 'Knowli live notification', caption: 'Live notification' },
+      { src: '/project-images/gallery/knowli/live-notification-page.jpeg', alt: 'Knowli live notification page', caption: 'Live notification page' },
+      { src: '/project-images/gallery/knowli/result-details-page.png', alt: 'Knowli result details page', caption: 'Result details page' },
+      { src: '/project-images/gallery/knowli/settings-page.png', alt: 'Knowli settings page', caption: 'Settings page' },
+      { src: '/project-images/gallery/knowli/limits-request-section.jpeg', alt: 'Knowli limits request section', caption: 'Limits request section' },
+      { src: '/project-images/gallery/knowli/limits-boosted-page.jpeg', alt: 'Knowli boosted limits page', caption: 'Boosted limits page' },
+      { src: '/project-images/gallery/knowli/admin-panel.jpg', alt: 'Knowli admin panel', caption: 'Admin panel' },
+      { src: '/project-images/gallery/knowli/admin-approval-granted.jpg', alt: 'Knowli admin approval granted', caption: 'Admin approval granted' },
+      { src: '/project-images/gallery/knowli/analytics.jpg', alt: 'Knowli analytics', caption: 'Analytics' },
+      { src: '/project-images/gallery/knowli/github-actions-deployment.jpg', alt: 'Knowli GitHub Actions deployment', caption: 'GitHub Actions deployment' },
+    ],
     websitePreview: 'https://www.knowli.xyz',
     features: [
       'Self-service creator signup — build your own quiz and share it at /u/<username>',
@@ -253,7 +287,7 @@ export const projects: Project[] = [
     },
     privateRepo: true,
     technologies: [getTechnology('Next.js'), getTechnology('React'), getTechnology('Typescript'), getTechnology('Tailwind CSS'), getTechnology('MongoDB'), getTechnology('Node.js')],
-    thumbnail: '/project-images/omocollege.PNG',
+    thumbnail: '/project-images/omocollege.png',
     websitePreview: 'https://omocollege.vercel.app',
     features: [
       'Student self-registration with an auto-generated Student ID',
