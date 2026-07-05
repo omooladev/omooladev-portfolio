@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { projects } from '@/data/projects';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://omooladev-portfolio-dev.vercel.app';
+  const baseUrl = 'https://omooladev-portfolio.vercel.app';
 
   // Static pages
   const staticPages = [

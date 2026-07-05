@@ -6,14 +6,14 @@ import WhatsAppButton from './components/WhatsAppButton';
 import { ThemeProvider } from './components/ThemeProvider';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://omooladev-portfolio-dev.vercel.app'),
+  metadataBase: new URL('https://omooladev-portfolio.vercel.app'),
   title: {
     default: 'Omosuyi Olawole | Full-Stack Developer',
     template: '%s | Omosuyi Olawole',
   },
   description: 'Full-Stack Developer specializing in React, Next.js, Node.js, and TypeScript. Building scalable web applications.',
   applicationName: 'Omosuyi Olawole Portfolio',
-  authors: [{ name: 'Omosuyi Olawole', url: 'https://omooladev-portfolio-dev.vercel.app' }],
+  authors: [{ name: 'Omosuyi Olawole', url: 'https://omooladev-portfolio.vercel.app' }],
   generator: 'Next.js',
   keywords: ['Omosuyi Olawole', 'omooladev', 'Full-Stack Developer', 'React', 'Next.js', 'Node.js', 'TypeScript'],
   referrer: 'origin-when-cross-origin',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://omooladev-portfolio-dev.vercel.app/',
+    url: 'https://omooladev-portfolio.vercel.app/',
     title: 'Omosuyi Olawole | Full-Stack Developer',
     description: 'Full-Stack Developer specializing in React, Next.js, Node.js, and TypeScript',
     siteName: 'Omosuyi Olawole Portfolio',

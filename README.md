@@ -11,7 +11,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 
-[Live Demo](https://omooladev-portfolio.onrender.com/) • [GitHub](https://github.com/omooladev/omooladev-portfolio)
+[Live Demo](https://omooladev-portfolio.vercel.app/) • [GitHub](https://github.com/omooladev/omooladev-portfolio)
 
 </div>
 

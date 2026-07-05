@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${project.name} | Omosuyi Olawole`,
       description: project.description,
       type: 'website',
-      url: `https://omooladev-portfolio-dev.vercel.app/projects/${project.id}`,
+      url: `https://omooladev-portfolio.vercel.app/projects/${project.id}`,
       images: [
         {
           url: project.thumbnail,

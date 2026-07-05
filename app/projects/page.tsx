@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Projects | Omosuyi Olawole",
     description: "Explore my portfolio of web development projects showcasing full-stack development skills.",
     type: "website",
-    url: "https://omooladev-portfolio-dev.vercel.app/projects",
+    url: "https://omooladev-portfolio.vercel.app/projects",
     images: [
       {
         url: "/images/omooladev.png",
