@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     'Lagos Developer',
     'Nigeria Developer'
   ],
-  authors: [{ name: 'Omosuyi Olawole', url: 'https://omooladev-portfolio-dev.vercel.app' }],
+  authors: [{ name: 'Omosuyi Olawole', url: 'https://omooladev-portfolio.vercel.app' }],
   creator: 'Omosuyi Olawole',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://omooladev-portfolio-dev.vercel.app/',
+    url: 'https://omooladev-portfolio.vercel.app/',
     title: 'Omosuyi Olawole | Full-Stack Developer',
     description: 'Full-Stack Developer specializing in React, Next.js, Node.js, and TypeScript. Building scalable web applications with modern technologies.',
     siteName: 'Omosuyi Olawole Portfolio',
