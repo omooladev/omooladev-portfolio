@@ -32,6 +32,13 @@ export interface SocialPost {
   platform?: "linkedin" | "twitter" | "other";
 }
 
+// A brand's social media account, shown as an icon row (distinct from SocialPost,
+// which is a write-up about the project rather than an account).
+export interface SocialLink {
+  platform: "x" | "instagram" | "linkedin" | "youtube" | "tiktok";
+  url: string;
+}
+
 export interface Project {
   id: string;
   name: string;
@@ -54,6 +61,7 @@ export interface Project {
     posts?: SocialPost[]; // Curated list of write-ups / posts
     searchUrl?: string; // Optional "see all posts" link (e.g. a LinkedIn search)
   };
+  socialLinks?: SocialLink[]; // Brand's own social media accounts, shown as an icon row
 }
 
 const getTechnology = (name: string): Technology => {
@@ -81,17 +89,95 @@ export const projects: Project[] = [
     id: 'knowli',
     name: 'Knowli',
     description:
-      'A public quiz platform where anyone signs up, builds a short quiz about themselves, and shares a personal link with friends. Friends answer, see how well they really know the creator, share their score on WhatsApp, and open a thank-you gift — no account needed to play.',
+      'The parent brand behind Daylight and Knowli Quiz. A marketing site that introduces the Knowli studio, explains the idea tying its products together, and links out to each live product.',
     fullDescription:
-      'Knowli started as a single-person quiz ("How well do you know me?") and grew, over 15+ releases, into a full multi-user product. Every user is now a creator with their own quiz at /u/<username>, a dashboard with stat cards and an activity feed, per-recipient gifts, and creator self-tests kept separate from real player results. It ships a complete platform layer: self-service signup, multi-admin auth gated behind super-admin approval, database-driven free-tier limits with creator tiers and email verification, an in-app notification system, limit-increase requests with an admin approval queue, and Google Analytics — all backed by a real v1→v2 data migration run against the live database.',
-    category: 'platform',
+      "Knowli is the parent brand behind a growing family of products — Daylight (the diary app) and Knowli Quiz — with more learning and productivity products planned. This site is the brand's home: a header with smooth-scroll navigation, a hero, a section explaining the idea behind Knowli (one idea, expressed as different products, each free to look and feel like itself), a products section linking to Daylight's waitlist and Knowli Quiz, a values section (data ownership, honesty about what's built vs. coming), an about section, and a footer with social links.",
+    category: 'brand',
     links: {
-      github: 'https://github.com/omooladev/knowli',
+      github: 'https://github.com/knowlihq/knowli',
       demo: 'https://www.knowli.xyz',
     },
     privateRepo: true,
-    technologies: [getTechnology('Next.js'), getTechnology('React'), getTechnology('Typescript'), getTechnology('Tailwind CSS'), getTechnology('MongoDB'), getTechnology('Node.js')],
+    technologies: [getTechnology('Next.js'), getTechnology('React'), getTechnology('Typescript'), getTechnology('Tailwind CSS')],
     thumbnail: '/project-images/knowli.png',
+    websitePreview: 'https://www.knowli.xyz',
+    socialLinks: [
+      { platform: 'x', url: 'https://x.com/knowlihq' },
+      { platform: 'instagram', url: 'https://www.instagram.com/knowlihq/' },
+      { platform: 'linkedin', url: 'https://www.linkedin.com/company/knowlihq/' },
+      { platform: 'youtube', url: 'https://www.youtube.com/@knowlihq' },
+      { platform: 'tiktok', url: 'https://www.tiktok.com/@knowlihq' },
+    ],
+    features: [
+      'Header with smooth-scroll navigation to Products, Principles, and About',
+      'Products section linking to each live product — the Daylight waitlist and Knowli Quiz',
+      'Idea section explaining the philosophy behind the studio: one idea, many products, each with its own identity',
+      'Values section — data ownership and honesty about what is built vs. what is coming',
+      'About section with a direct studio contact email',
+      'Footer with social channels (X, Instagram, LinkedIn, YouTube, GitHub)',
+    ],
+    challenges: [
+      'Introducing a multi-product brand before every product has its own finished visual identity — Knowli Quiz still borrows the shared Knowli mark, while Daylight already has its own',
+      'Writing brand copy that stays honest about what is live versus planned, rather than reading as marketing filler',
+    ],
+    releases: [
+      {
+        version: 'v1.0.0',
+        title: 'The Knowli House Opens',
+        date: 'Jul 2026',
+        category: 'feature',
+        summary:
+          "Knowli's home on the web went live — a place to learn what the brand is about and find your way to its products, Daylight and Knowli Quiz, with idea, values, and about sections plus social links in the footer.",
+      },
+    ],
+  },
+  {
+    id: 'daylight',
+    name: 'Daylight',
+    description:
+      "The official diary app of Knowli — an upcoming AI-powered journaling PWA. Currently pre-launch: the live site is a waitlist landing page so early visitors can be notified at launch.",
+    fullDescription:
+      "Daylight will let people document their lives without overthinking the day — write entries by text or voice, have the AI advise, motivate, or roast on request, and export or import diaries from other apps. None of that is public yet: right now the only thing live is a pre-launch waitlist landing page, gated behind a `WAITLIST_ENABLED` flag so the site can be deployed ahead of the actual product. The waitlist itself is a full feature in its own right — duplicate signups are treated as a non-event rather than an error, and every signup is tagged with first-touch campaign attribution (UTM params or a referrer-hostname fallback) captured in Next.js's proxy layer before the page even renders, so campaign channels can be judged by real signups instead of clicks.",
+    category: 'productivity',
+    links: {
+      github: 'https://github.com/knowlihq/knowli-diary',
+      demo: 'https://daylight.knowli.xyz',
+    },
+    privateRepo: true,
+    technologies: [getTechnology('Next.js'), getTechnology('React'), getTechnology('Typescript'), getTechnology('Tailwind CSS'), getTechnology('MongoDB'), getTechnology('Node.js')],
+    thumbnail: '/project-images/daylight.png',
+    websitePreview: 'https://daylight.knowli.xyz',
+    features: [
+      'Pre-launch waitlist landing page, toggled on/off with a `WAITLIST_ENABLED` flag rather than a code change',
+      'First-touch campaign attribution — UTM params or a referrer-hostname fallback captured server-side in the proxy, stored in an HTTP-only cookie, and saved against each signup',
+      'Duplicate signups resolve as "already on the list" instead of an error',
+      'Privacy policy page and Google Analytics integration with a password-gated /dev opt-out toggle',
+      'PWA-ready with app icons and manifest',
+    ],
+    challenges: [
+      'Capturing accurate attribution with zero client-side dependency — read entirely from the raw Referer header and UTM params in the Next.js proxy, so it still works even if the visitor\'s browser never runs page JS',
+      'Choosing first-touch over last-touch attribution, since a pre-launch single-page site cares about which channel first earned someone\'s interest, not what they clicked last',
+      'Shipping a real backend (Mongoose, auth primitives, session model) ahead of the features that need it, without exposing any of it on the public pre-launch site',
+    ],
+    social: {
+      posts: [],
+    },
+  },
+  {
+    id: 'knowli-quiz',
+    name: 'Knowli Quiz',
+    description:
+      'A public quiz platform where anyone signs up, builds a short quiz about themselves, and shares a personal link with friends. Friends answer, see how well they really know the creator, share their score on WhatsApp, and open a thank-you gift — no account needed to play.',
+    fullDescription:
+      'Knowli Quiz started as a single-person quiz ("How well do you know me?") and grew, over 15+ releases, into a full multi-user product, now living at quiz.knowli.xyz under the Knowli parent brand. Every user is now a creator with their own quiz at /u/<username>, a dashboard with stat cards and an activity feed, per-recipient gifts, and creator self-tests kept separate from real player results. It ships a complete platform layer: self-service signup, multi-admin auth gated behind super-admin approval, database-driven free-tier limits with creator tiers and email verification, an in-app notification system, limit-increase requests with an admin approval queue, and Google Analytics — all backed by a real v1→v2 data migration run against the live database.',
+    category: 'platform',
+    links: {
+      github: 'https://github.com/knowlihq/knowli-quiz',
+      demo: 'https://quiz.knowli.xyz',
+    },
+    privateRepo: true,
+    technologies: [getTechnology('Next.js'), getTechnology('React'), getTechnology('Typescript'), getTechnology('Tailwind CSS'), getTechnology('MongoDB'), getTechnology('Node.js')],
+    thumbnail: '/project-images/knowli-quiz.png',
     // Add more screenshots here (resized to 1280x720). Drop the files in
     // public/project-images/ and reference them with a lowercase path.
     gallery: [
@@ -117,7 +203,7 @@ export const projects: Project[] = [
       { src: '/project-images/gallery/knowli/analytics.jpg', alt: 'Knowli analytics', caption: 'Analytics' },
       { src: '/project-images/gallery/knowli/github-actions-deployment.jpg', alt: 'Knowli GitHub Actions deployment', caption: 'GitHub Actions deployment' },
     ],
-    websitePreview: 'https://www.knowli.xyz',
+    websitePreview: 'https://quiz.knowli.xyz',
     features: [
       'Self-service creator signup — build your own quiz and share it at /u/<username>',
       'Play with no account — just enter the name the creator knows you by',

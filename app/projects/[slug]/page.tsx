@@ -369,6 +369,39 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
               </div>
             </div>
 
+            {/* Social Links */}
+            {project.socialLinks && project.socialLinks.length > 0 && (
+              <div className="card p-6">
+                <h3 className="text-xl font-bold mb-4">Follow {project.name}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {project.socialLinks.map((social) => {
+                    const iconClass =
+                      social.platform === "x"
+                        ? "fa-brands fa-x-twitter"
+                        : social.platform === "instagram"
+                          ? "fa-brands fa-instagram"
+                          : social.platform === "linkedin"
+                            ? "fa-brands fa-linkedin-in"
+                            : social.platform === "youtube"
+                              ? "fa-brands fa-youtube"
+                              : "fa-brands fa-tiktok";
+                    return (
+                      <a
+                        key={social.platform}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 p-3 bg-primary/10 dark:bg-primary-dark/20 text-primary dark:text-primary-dark rounded-lg hover:bg-primary/20 dark:hover:bg-primary-dark/30 transition-colors"
+                        aria-label={`${project.name} on ${social.platform}`}
+                      >
+                        <i className={`${iconClass} text-xl`} aria-hidden="true" />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {/* Share */}
             <div className="card p-6">
               <h3 className="text-xl font-bold mb-4">Share This Project</h3>
