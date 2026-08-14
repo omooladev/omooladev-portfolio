@@ -35,7 +35,7 @@ export interface SocialPost {
 // A brand's social media account, shown as an icon row (distinct from SocialPost,
 // which is a write-up about the project rather than an account).
 export interface SocialLink {
-  platform: "x" | "instagram" | "linkedin" | "youtube" | "tiktok";
+  platform: "x" | "instagram" | "linkedin" | "youtube" | "tiktok" | "facebook";
   url: string;
 }
 
@@ -55,6 +55,12 @@ export interface Project {
   gallery?: GalleryImage[]; // Extra screenshots shown in the details-page gallery
   websitePreview?: string; // For the hover effect showing the full website
   features?: string[];
+  // Features from an earlier phase of the product (e.g. pre-launch) that are no longer
+  // current but are kept visible as history rather than deleted outright.
+  archivedFeatures?: string[];
+  // How this project used to be described (e.g. its pre-launch positioning), kept visible
+  // as history rather than deleted outright when `description`/`fullDescription` change.
+  archivedDescription?: string;
   challenges?: string[];
   releases?: Release[]; // Version history, newest first
   social?: {
@@ -86,12 +92,181 @@ const getTechnology = (name: string): Technology => {
 
 export const projects: Project[] = [
   {
+    id: 'daylight',
+    name: 'Daylight',
+    description:
+      "The official diary app of Knowli — an AI-powered journaling PWA, publicly live since August 2026. Write entries that autosave as you type, get an AI-generated title or a rewrite on request, export or import your diary, and install it as an app on your phone or desktop.",
+    fullDescription:
+      "Daylight lets people document their lives without overthinking the day. It shipped in stages: a pre-launch waitlist landing page, then a private preview for invited waitlist testers, then a full public launch on August 10, 2026 that opened registration to everyone — no invite required. Since launch it's kept shipping: email verification, a one-time \"we're live\" announcement email to waitlist signups, usage-stat tracking for its AI features, and — most recently — a full internal `/admin` dashboard (replacing the old developer-only panel) for reviewing support and feedback, managing the waitlist and referral program, and approving new admin accounts. Today's diary itself covers writing with autosave, AI-generated titles and AI entry refine (both free, not subscription-gated), export/import, password-protected entry sharing, a referral program, in-app notifications, and full PWA support.",
+    category: 'productivity',
+    links: {
+      github: 'https://github.com/knowlihq/knowli-diary',
+      demo: 'https://daylight.knowli.xyz',
+    },
+    privateRepo: true,
+    technologies: [
+      getTechnology('Next.js'),
+      getTechnology('React'),
+      getTechnology('Typescript'),
+      getTechnology('Tailwind CSS'),
+      getTechnology('MongoDB'),
+      getTechnology('Mongoose'),
+      getTechnology('Node.js'),
+      getTechnology('Zod'),
+      getTechnology('Google Gemini'),
+      getTechnology('Resend'),
+      getTechnology('Sentry'),
+    ],
+    thumbnail: '/project-images/daylight.png',
+    // No websitePreview: daylight.knowli.xyz sends X-Frame-Options: DENY and a
+    // frame-ancestors 'none' CSP (deliberate security hardening), so it can never
+    // render inside this page's iframe embed. Visit Live Site / Live Demo still work.
+    // Daylight's footer links to the same shared Knowli brand accounts as the parent site
+    // (see brand-accounts.md) — not separate Daylight-only handles.
+    socialLinks: [
+      { platform: 'x', url: 'https://x.com/knowlihq' },
+      { platform: 'instagram', url: 'https://www.instagram.com/knowlihq/' },
+      { platform: 'linkedin', url: 'https://www.linkedin.com/company/knowlihq/' },
+      { platform: 'youtube', url: 'https://www.youtube.com/@knowlihq' },
+      { platform: 'tiktok', url: 'https://www.tiktok.com/@knowlihq' },
+      { platform: 'facebook', url: 'https://www.facebook.com/share/18tUPC9wkS/?mibextid=wwXIfr' },
+    ],
+    // Add more screenshots here (resized to 1280x720). Drop the files in
+    // public/project-images/gallery/daylight/ and reference them with a lowercase path.
+    gallery: [
+      { src: '/project-images/gallery/daylight/home-page.jpg', alt: 'Daylight home page', caption: 'Home page' },
+      { src: '/project-images/gallery/daylight/register-page.jpg', alt: 'Daylight register page', caption: 'Create an account page' },
+      { src: '/project-images/gallery/daylight/login-page.jpg', alt: 'Daylight login page', caption: 'Login page' },
+      { src: '/project-images/gallery/daylight/help-page.jpg', alt: 'Daylight help center page', caption: 'Help Center' },
+      { src: '/project-images/gallery/daylight/feedback-page.jpg', alt: 'Daylight feedback page', caption: 'Feedback page' },
+      { src: '/project-images/gallery/daylight/support-page.jpg', alt: 'Daylight support page', caption: 'Support page' },
+    ],
+    features: [
+      'Write diary entries that autosave as you type, with a live "Saved"/"Saving…" status — never a Save button to remember',
+      'AI-generated entry titles and AI entry refine on request, free for every account, not gated behind a subscription',
+      'Choose an AI assistant persona (Sol, Lumi, or Ray) at onboarding, changeable anytime',
+      'Export entries to a downloadable file, or import a diary from another app',
+      'Share a single entry via a password-protected link',
+      'Email verification via a 6-digit code or a one-click link that works from any device',
+      'Referral program with shareable links and a leaderboard-tracked points system',
+      'In-app notifications and an in-app feedback/support system open to every account',
+      'Install as a PWA on phone or desktop, with offline access to the installed app',
+      'Account tools: usage stats, active-session management (sign out any device remotely), full account deletion',
+      'Internal `/admin` dashboard — role-based staff access (admin / super admin) for support & feedback review, waitlist/referral tools, and launch-announcement sends',
+    ],
+    // How Daylight was described pre-launch, kept visible as history rather than deleted.
+    archivedDescription:
+      "Pre-launch positioning (through Aug 2026): \"The official diary app of Knowli — an upcoming AI-powered journaling PWA. Currently pre-launch: the live site is a waitlist landing page so early visitors can be notified at launch.\" Daylight will let people document their lives without overthinking the day — write entries by text or voice, have the AI advise, motivate, or roast on request, and export or import diaries from other apps. None of that is public yet: right now the only thing live is a pre-launch waitlist landing page, gated behind a `WAITLIST_ENABLED` flag so the site can be deployed ahead of the actual product. The waitlist itself is a full feature in its own right — duplicate signups are treated as a non-event rather than an error, and every signup is tagged with first-touch campaign attribution (UTM params or a referrer-hostname fallback) captured in Next.js's proxy layer before the page even renders, so campaign channels can be judged by real signups instead of clicks.",
+    // Pre-launch-era work — no longer how the product behaves today, kept visible as history rather than deleted.
+    archivedFeatures: [
+      'Pre-launch waitlist landing page, toggled on/off with a `WAITLIST_ENABLED` flag rather than a code change',
+      'First-touch campaign attribution — UTM params or a referrer-hostname fallback captured server-side in the proxy, stored in an HTTP-only cookie, and saved against each waitlist signup',
+      'Duplicate waitlist signups resolved as "already on the list" instead of an error',
+      'Private-preview invite gate — a per-person signed token that let invited waitlist testers into the real production app and database ahead of public launch',
+      'Public countdown to launch day on the coming-soon home page',
+    ],
+    challenges: [
+      'Capturing accurate waitlist attribution with zero client-side dependency — read entirely from the raw Referer header and UTM params in the Next.js proxy, so it still worked even if the visitor\'s browser never ran page JS',
+      'Choosing first-touch over last-touch attribution for the waitlist, since a pre-launch site cares about which channel first earned someone\'s interest, not what they clicked last',
+      'Gating a real, invite-only preview of the live production app/database to a handful of waitlist testers with a per-person revocable token, instead of a single shared password that can\'t be attributed to whoever leaked it',
+      'Closing a critical auth bug where a pre-verification "pending" token and a real session token were structurally identical JWTs and could be replayed as each other — fixed by adding an explicit `purpose` claim checked on every verification',
+      'Migrating every capability off the old password-gated `/dev` panel onto a real `/admin` dashboard with two-tier, self-service-with-approval role-based access, then retiring `/dev` outright rather than running both in parallel',
+    ],
+    releases: [
+      {
+        version: 'v2.4.0',
+        title: 'Admin Dashboard',
+        date: 'Aug 2026',
+        category: 'feature',
+        summary:
+          'A proper admin dashboard at /admin replaced the old developer-only panel — account approval, user lookup, support/feedback review, waitlist and referral tools, and direct user notifications.',
+      },
+      {
+        version: 'v2.3.2',
+        title: 'Feedback Prompts Stop Repeating',
+        date: 'Aug 2026',
+        category: 'fix',
+        summary: "Fixed feedback prompts re-asking about things already answered, including after switching devices or clearing browser data, and made multi-note feedback submissions more reliable.",
+      },
+      {
+        version: 'v2.3.1',
+        title: 'Search Visibility & Tab Title Fix',
+        date: 'Aug 2026',
+        category: 'fix',
+        summary: "Fixed browser tab titles showing \"Daylight\" twice, and made Daylight's public pages easier for search engines to discover and index.",
+      },
+      {
+        version: 'v2.3.0',
+        title: 'Public Launch, Usage Stats & Feedback for Everyone',
+        date: 'Aug 2026',
+        category: 'feature',
+        summary:
+          "Daylight opened to everyone — no invite needed. Settings now shows AI usage totals, and quick feedback prompts became available to every account instead of just private-preview testers.",
+      },
+      {
+        version: 'v2.2.0',
+        title: 'Email Verification & Expanded Help Center',
+        date: 'Aug 2026',
+        category: 'feature',
+        summary: 'New accounts now confirm their email via a 6-digit code or one-click link, and the Help Center grew into 8 organized articles.',
+      },
+      {
+        version: 'v2.1.2',
+        title: 'Reliability Fix',
+        date: 'Aug 2026',
+        category: 'fix',
+        summary: 'Fixed intermittent dashboard errors, unexpected logouts across multiple tabs, and stale login-state buttons on public pages.',
+      },
+      {
+        version: 'v2.1.1',
+        title: 'Reliability Fix',
+        date: 'Aug 2026',
+        category: 'fix',
+        summary: 'Fixed a rare error page some people saw right after opening the installed PWA from their home screen.',
+      },
+      {
+        version: 'v2.1.0',
+        title: 'Preview Email Reliability',
+        date: 'Aug 2026',
+        category: 'fix',
+        summary: 'Fixed preview invite/login/reminder emails showing a confusing "expires in 0 days" when sent on the link\'s own expiry date.',
+      },
+      {
+        version: 'v2.0.0',
+        title: 'A Countdown to Launch',
+        date: 'Aug 2026',
+        category: 'feature',
+        summary: 'The public coming-soon page gained a live countdown to launch day, replacing the open-ended "coming soon" message.',
+      },
+      {
+        version: 'v1.0.0',
+        title: 'Never Hit Save Again',
+        date: 'Aug 2026',
+        category: 'feature',
+        summary:
+          'The first release: accounts, autosaving diary entries with search/export/import, account/session management, and PWA install support.',
+      },
+    ],
+    social: {
+      posts: [
+        {
+          title: "Daylight is live — no more waitlist, no invite needed",
+          url: 'https://www.linkedin.com/feed/update/urn:li:activity:7492932162216718336',
+          date: 'Aug 2026',
+          platform: 'linkedin',
+        },
+      ],
+      searchUrl:
+        'https://www.linkedin.com/search/results/content/?keywords=daylight&origin=GLOBAL_SEARCH_HEADER&sortBy=%5B%22date_posted%22%5D&fromOrganization=%5B%22136055745%22%5D',
+    },
+  },
+  {
     id: 'knowli',
     name: 'Knowli',
     description:
       'The parent brand behind Daylight and Knowli Quiz. A marketing site that introduces the Knowli studio, explains the idea tying its products together, and links out to each live product.',
     fullDescription:
-      "Knowli is the parent brand behind a growing family of products — Daylight (the diary app) and Knowli Quiz — with more learning and productivity products planned. This site is the brand's home: a header with smooth-scroll navigation, a hero, a section explaining the idea behind Knowli (one idea, expressed as different products, each free to look and feel like itself), a products section linking to Daylight's waitlist and Knowli Quiz, a values section (data ownership, honesty about what's built vs. coming), an about section, and a footer with social links.",
+      "Knowli is the parent brand behind a growing family of products — Daylight (the diary app, now publicly live) and Knowli Quiz — with more learning and productivity products planned. This site is the brand's home: a header with smooth-scroll navigation, a hero, a section explaining the idea behind Knowli (one idea, expressed as different products, each free to look and feel like itself), a products section linking straight to each live product, a values section (data ownership, honesty about what's built vs. coming), an about section, and a footer with social links, a Products list, and a direct studio email.",
     category: 'brand',
     links: {
       github: 'https://github.com/knowlihq/knowli',
@@ -107,20 +282,30 @@ export const projects: Project[] = [
       { platform: 'linkedin', url: 'https://www.linkedin.com/company/knowlihq/' },
       { platform: 'youtube', url: 'https://www.youtube.com/@knowlihq' },
       { platform: 'tiktok', url: 'https://www.tiktok.com/@knowlihq' },
+      { platform: 'facebook', url: 'https://www.facebook.com/share/18tUPC9wkS/?mibextid=wwXIfr' },
     ],
     features: [
       'Header with smooth-scroll navigation to Products, Principles, and About',
-      'Products section linking to each live product — the Daylight waitlist and Knowli Quiz',
+      'Products section linking directly to each live product — Daylight and Knowli Quiz',
       'Idea section explaining the philosophy behind the studio: one idea, many products, each with its own identity',
       'Values section — data ownership and honesty about what is built vs. what is coming',
       'About section with a direct studio contact email',
-      'Footer with social channels (X, Instagram, LinkedIn, YouTube, GitHub)',
+      'Footer with a Products list, social channels (X, Instagram, LinkedIn, YouTube, GitHub), and the studio email shown directly',
     ],
     challenges: [
       'Introducing a multi-product brand before every product has its own finished visual identity — Knowli Quiz still borrows the shared Knowli mark, while Daylight already has its own',
       'Writing brand copy that stays honest about what is live versus planned, rather than reading as marketing filler',
+      "Updating the brand site's product links and copy the moment a product's own status changes (e.g. Daylight going from waitlist to live) so the parent site never lags behind reality",
     ],
     releases: [
+      {
+        version: 'v1.1.0',
+        title: 'Daylight Is Live',
+        date: 'Aug 2026',
+        category: 'feature',
+        summary:
+          "Daylight's product card now says \"Visit\" and links straight to the live app instead of a waitlist signup. The footer also gained a Products list (Daylight, Knowli Quiz) and shows the studio email directly instead of a generic \"Contact\" link.",
+      },
       {
         version: 'v1.0.0',
         title: 'The Knowli House Opens',
@@ -130,38 +315,6 @@ export const projects: Project[] = [
           "Knowli's home on the web went live — a place to learn what the brand is about and find your way to its products, Daylight and Knowli Quiz, with idea, values, and about sections plus social links in the footer.",
       },
     ],
-  },
-  {
-    id: 'daylight',
-    name: 'Daylight',
-    description:
-      "The official diary app of Knowli — an upcoming AI-powered journaling PWA. Currently pre-launch: the live site is a waitlist landing page so early visitors can be notified at launch.",
-    fullDescription:
-      "Daylight will let people document their lives without overthinking the day — write entries by text or voice, have the AI advise, motivate, or roast on request, and export or import diaries from other apps. None of that is public yet: right now the only thing live is a pre-launch waitlist landing page, gated behind a `WAITLIST_ENABLED` flag so the site can be deployed ahead of the actual product. The waitlist itself is a full feature in its own right — duplicate signups are treated as a non-event rather than an error, and every signup is tagged with first-touch campaign attribution (UTM params or a referrer-hostname fallback) captured in Next.js's proxy layer before the page even renders, so campaign channels can be judged by real signups instead of clicks.",
-    category: 'productivity',
-    links: {
-      github: 'https://github.com/knowlihq/knowli-diary',
-      demo: 'https://daylight.knowli.xyz',
-    },
-    privateRepo: true,
-    technologies: [getTechnology('Next.js'), getTechnology('React'), getTechnology('Typescript'), getTechnology('Tailwind CSS'), getTechnology('MongoDB'), getTechnology('Node.js')],
-    thumbnail: '/project-images/daylight.png',
-    websitePreview: 'https://daylight.knowli.xyz',
-    features: [
-      'Pre-launch waitlist landing page, toggled on/off with a `WAITLIST_ENABLED` flag rather than a code change',
-      'First-touch campaign attribution — UTM params or a referrer-hostname fallback captured server-side in the proxy, stored in an HTTP-only cookie, and saved against each signup',
-      'Duplicate signups resolve as "already on the list" instead of an error',
-      'Privacy policy page and Google Analytics integration with a password-gated /dev opt-out toggle',
-      'PWA-ready with app icons and manifest',
-    ],
-    challenges: [
-      'Capturing accurate attribution with zero client-side dependency — read entirely from the raw Referer header and UTM params in the Next.js proxy, so it still works even if the visitor\'s browser never runs page JS',
-      'Choosing first-touch over last-touch attribution, since a pre-launch single-page site cares about which channel first earned someone\'s interest, not what they clicked last',
-      'Shipping a real backend (Mongoose, auth primitives, session model) ahead of the features that need it, without exposing any of it on the public pre-launch site',
-    ],
-    social: {
-      posts: [],
-    },
   },
   {
     id: 'knowli-quiz',

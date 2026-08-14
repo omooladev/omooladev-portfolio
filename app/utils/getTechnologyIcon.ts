@@ -35,6 +35,11 @@ export const getTechnologyIcon = (name: string): TechnologyIcon => {
     "Redux": { icon: "bx bxl-redux redux-icon" },
     "EJS": { icon: "bx bx-code-block ejs-icon" },
     "Cropper.Js": { icon: "bx bx-crop cropper-icon" },
+    "Mongoose": { icon: "bx bxs-data mongoose-icon" },
+    "Zod": { icon: "bx bxs-shield-alt-2 zod-icon" },
+    "Resend": { icon: "bx bxs-envelope resend-icon" },
+    "Sentry": { icon: "bx bxs-bug sentry-icon" },
+    "Google Gemini": { icon: "bx bxl-google gemini-icon" },
   };
 
   const technology = technologyMap[name];
