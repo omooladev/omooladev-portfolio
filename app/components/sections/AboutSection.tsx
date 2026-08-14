@@ -7,17 +7,19 @@ export default function AboutSection() {
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed order-2 md:order-1">
           <p>
-            Hello! I&apos;m Omosuyi Olawole, also known as omooladev, a dedicated software engineer from Lagos, Nigeria,
-            specializing in web application development. My core expertise lies in Javascript, and I prefer using it for
-            most of my projects.
+            Hello! I&apos;m Omosuyi Olawole — omooladev — a full-stack software engineer based in Lagos, Nigeria,
+            building web products end to end in JavaScript and TypeScript, mostly on Next.js, React, Node.js, and
+            MongoDB.
           </p>
           <p>
-            I have a keen interest in crafting solutions using the best available tools. A critical thinker, I am
-            deeply passionate about problem-solving.
+            Lately that&apos;s meant building Knowli, a small product studio: Daylight, an AI-powered journaling PWA
+            with autosave, AI-assisted writing, and its own admin dashboard; and Knowli Quiz, which grew from a
+            single-user app into a public, multi-tenant platform with creator tiers, live notifications, and a
+            real production data migration along the way. I care as much about the parts users never see —
+            authentication, rate limiting, security hardening, role-based access — as the features they do.
           </p>
           <p>
-            When I&apos;m not coding, you&apos;ll find me enjoying football games with friends, diving into books, or
-            enjoying a swim.
+            Outside of code, you&apos;ll usually find me playing football with friends or reading.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
             <a

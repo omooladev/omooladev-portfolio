@@ -167,6 +167,40 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
               </div>
             )}
 
+            {/* Archived Features & Description */}
+            {((project.archivedFeatures && project.archivedFeatures.length > 0) || project.archivedDescription) && (
+              <details className="group rounded-lg border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800/50 p-6">
+                <summary className="cursor-pointer text-xl font-bold list-none flex items-center gap-2 select-none">
+                  <i className="bx bx-archive text-2xl text-gray-500 dark:text-gray-400" />
+                  <span>Archived</span>
+                  <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                    (earlier phase of this project — kept for history)
+                  </span>
+                  <i className="bx bx-chevron-down text-2xl ml-auto transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="mt-4 space-y-4">
+                  {project.archivedDescription && (
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed italic">
+                      {project.archivedDescription}
+                    </p>
+                  )}
+                  {project.archivedFeatures && project.archivedFeatures.length > 0 && (
+                    <ul className="space-y-3">
+                      {project.archivedFeatures.map((feature, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 text-gray-600 dark:text-gray-400"
+                        >
+                          <i className="bx bx-archive-in text-xl text-gray-400 flex-shrink-0 mt-1" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </details>
+            )}
+
             {/* Challenges */}
             {project.challenges && project.challenges.length > 0 && (
               <div>
@@ -384,7 +418,9 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
                             ? "fa-brands fa-linkedin-in"
                             : social.platform === "youtube"
                               ? "fa-brands fa-youtube"
-                              : "fa-brands fa-tiktok";
+                              : social.platform === "tiktok"
+                                ? "fa-brands fa-tiktok"
+                                : "fa-brands fa-facebook-f";
                     return (
                       <a
                         key={social.platform}
